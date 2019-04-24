@@ -1,0 +1,61 @@
+.header {
+  height: 115px;
+  background: #fff;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+.inner {
+  width: 1280px;
+  margin: 0 auto;
+  overflow: hidden;
+  height: 100%;
+}
+.main {
+  min-height: 600px;
+}
+.aside {
+  width: 280px;
+  float: left;
+  min-height: 600px;
+  a {
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
+.aside-top {
+  border-bottom: 2px solid rgba(0,0,0,1);
+  margin: 0 20px 0 20px;
+  padding: 10px 0 8px 0;
+  transition: all 0.3;
+  li {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 0 0 30px;
+    line-height: 36px;
+    cursor: pointer;
+  }
+  li:hover{
+    background-color: rgba(242, 153, 74, 0.2);
+  }
+}
+.aside-nav {
+  padding: 0 20px 0 36px;
+}
+.content {
+  width: 1000px;
+  float: left;
+  min-height: 600px;
+  background: rgba(242, 153, 74, 0.2);
+}
+.logo {
+  float: left;
+  padding: 20px 0 0 80px;
+  > img {
+    display: block;
+    width: 233px;
+    height: 64px;
+  }
+}
+.user {
+  padding: 30px 30px 0 0;
+  float: right;
+}
