@@ -1,0 +1,21 @@
+.main {
+    padding: 80px 0 0 50px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.list {
+    padding: 8px 0;
+    font-size: 14px;
+    > li {
+        line-height: 40px;
+        > span {
+            display: inline-block;
+            width: 500px;
+        }
+    }
+}

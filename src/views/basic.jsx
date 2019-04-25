@@ -1,40 +1,41 @@
-import React from 'react';
-import { SideNav, Nav } from 'react-sidenav';
+import React from "react";
+import { Link } from "react-router-dom";
+import { SideNav, Nav } from "react-sidenav";
 
-import MainRoute from '../routes/main-route';
-import EdButton from '../components/EdButton';
+import MainRoute from "../routes/main-route";
+import EdButton from "../components/EdButton";
 
-import style from './basic.module.scss';
+import style from "./basic.module.scss";
 
-import logo from '../static/images/logo.png';
+import logo from "../static/images/logo.png";
 
 const theme = {
-    selectionBgColor: 'rgba(242, 153, 74, 0.2)'
+    selectionBgColor: "rgba(242, 153, 74, 0.2)"
 };
 
 const menus = [
     {
-        key: 'user',
-        name: 'User',
+        key: "user",
+        name: "User",
         child: [
-            { key: 'user-account', name: 'User Accounts and Status' },
-            { key: 'client', name: 'Client End Users' },
-            { key: 'institutional', name: 'Institutional Partners' },
-            { key: 'travel-partners', name: 'Travel Partner' },
-            { key: 'competition', name: 'Competition Organisers' }
+            { key: "user-accounts", name: "User Accounts and Status" },
+            { key: "client", name: "Client End Users" },
+            { key: "institutional", name: "Institutional Partners" },
+            { key: "travel-partners", name: "Travel Partner" },
+            { key: "competition", name: "Competition Organisers" }
         ]
     },
     {
-        key: 'programs',
-        name: 'Programs'
+        key: "programs",
+        name: "Programs"
     },
     {
-        key: 'bookings',
-        name: 'Bookings'
+        key: "bookings",
+        name: "Bookings"
     },
     {
-        key: 'finance',
-        name: 'Finance'
+        key: "finance",
+        name: "Finance"
     }
 ];
 
@@ -47,14 +48,16 @@ const renderNav = () => {
             menu.child.forEach(val => {
                 chidArr.push(
                     <Nav id={val.key}>
-                        <a>{val.name}</a>
+                        <Link to={`/${val.key}`}>
+                            <a>{val.name}</a>
+                        </Link>
                     </Nav>
                 );
             });
         }
         arr.push(
             <Nav id={menu.key}>
-                <a style={{ fontWeight: 'bold' }}>{menu.name}</a>
+                <a style={{ fontWeight: "bold" }}>{menu.name}</a>
                 {chidArr}
             </Nav>
         );
@@ -63,6 +66,7 @@ const renderNav = () => {
 };
 
 const Basic = () => {
+    console.log(window.history);
     const handleSelect = val => {
         console.log(val);
     };
@@ -74,32 +78,32 @@ const Basic = () => {
                         <img src={logo} />
                     </div>
                     <div className={style.user}>
-                        <EdButton>112312</EdButton>
+                        <EdButton style={{ width: 120 }} size="large">
+                            112312
+                        </EdButton>
                     </div>
                 </div>
             </header>
             <section className={style.main}>
                 <div className={style.inner}>
                     <aside className={style.aside}>
-                        <div className={style['aside-top']}>
+                        <div className={style["aside-top"]}>
                             <SideNav theme={theme}>
                                 <Nav id="home">
-                                    <a style={{ fontWeight: 'bold' }}>
+                                    <a style={{ fontWeight: "bold" }}>
                                         Admin Home
                                     </a>
                                 </Nav>
                                 <Nav id="view">
-                                    <a style={{ fontWeight: 'bold' }}>
+                                    <a style={{ fontWeight: "bold" }}>
                                         View Site
                                     </a>
                                 </Nav>
                             </SideNav>
                         </div>
-                        <div className={style['aside-nav']}>
+                        <div className={style["aside-nav"]}>
                             <SideNav
-                                selectedPath=""
                                 theme={theme}
-                                onItemSelection={handleSelect}
                             >
                                 {renderNav()}
                             </SideNav>

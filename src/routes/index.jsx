@@ -1,13 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter  as Router, Route, Switch } from 'react-router-dom';
 
 import Basic from '../views/basic';
 
 const Routes = () => (
     <Router>
-        <Switch>
+        <div>
             <Route path="/" component={Basic}/>
-        </Switch>
+        </div>
     </Router>
 );
 
