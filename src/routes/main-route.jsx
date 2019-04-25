@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import Home from '../views/home';
+
 const MainRoute = () => (
     <Router>
         <Switch>
-            <Route path="/sign-in"/>
+            <Route path="/home" component={Home}/>
             <Route path="/user-accounts"/>
             <Route path="/client"/>
             <Route path="/institutional"/>

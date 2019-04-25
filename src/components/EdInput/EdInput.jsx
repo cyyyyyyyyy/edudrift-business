@@ -4,13 +4,14 @@ import { withStyles } from '@material-ui/core/styles';
 
 const EdInput = withStyles({
     root: {
-      height:'28px',
-      border: '1px solid #000',
-      borderRadius: '6px'
+        height: '28px',
+        border: '1px solid #000',
+        borderRadius: '6px',
+        backgroundColor: '#fff'
     },
-    error : {
-        border: '1px solid red',
+    error: {
+        border: '1px solid red'
     }
-  })(InputBase);
+})(InputBase);
 
-  export default EdInput;
+export default EdInput;

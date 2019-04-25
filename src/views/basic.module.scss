@@ -10,7 +10,7 @@
   height: 100%;
 }
 .main {
-  min-height: 600px;
+  min-height: 800px;
 }
 .aside {
   width: 280px;
@@ -22,23 +22,12 @@
   }
 }
 .aside-top {
-  border-bottom: 2px solid rgba(0,0,0,1);
-  margin: 0 20px 0 20px;
-  padding: 10px 0 8px 0;
-  transition: all 0.3;
-  li {
-    font-size: 14px;
-    font-weight: bold;
-    padding: 0 0 0 30px;
-    line-height: 36px;
-    cursor: pointer;
-  }
-  li:hover{
-    background-color: rgba(242, 153, 74, 0.2);
-  }
+  padding: 20px 20px 20px 22px;
+  margin: 0 0 0 15px;
+  border-bottom: 2px solid rgba(0,0,0,0.5);
 }
 .aside-nav {
-  padding: 0 20px 0 36px;
+  padding: 20px 20px 0 36px;
 }
 .content {
   width: 1000px;
