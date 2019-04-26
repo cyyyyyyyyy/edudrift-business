@@ -1,0 +1,13 @@
+.user-title {
+    overflow: hidden;
+    padding: 15px 0 15px 0;
+    li {
+        float: left;
+    }
+    > li:nth-child(3) {
+        padding: 0 0 0 360px;
+    }
+    > li:nth-child(4) {
+        float: right;
+    }
+}

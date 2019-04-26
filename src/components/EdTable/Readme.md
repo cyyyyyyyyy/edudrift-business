@@ -1,0 +1,5 @@
+Basic Table:
+
+```jsx
+<EdTable/>
+```

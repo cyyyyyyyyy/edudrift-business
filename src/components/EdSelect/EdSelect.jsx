@@ -4,4 +4,4 @@ import { withStyles } from '@material-ui/core/styles';
 
 const EdSelect = withStyles({})(Select);
 
-  export default EdSelect;
+export default EdSelect;

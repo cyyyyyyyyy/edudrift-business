@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { SideNav, Nav } from "react-sidenav";
 
-import MainRoute from "../routes/main-route";
-import EdButton from "../components/EdButton";
+import MainRoute from "routes/main-route";
+import EdButton from "components/EdButton";
 
 import style from "./basic.module.scss";
 
@@ -47,17 +47,17 @@ const renderNav = () => {
         if (menu.child) {
             menu.child.forEach(val => {
                 chidArr.push(
-                    <Nav id={val.key}>
+                    <Nav key={val.key} id={val.key}>
                         <Link to={`/${val.key}`}>
-                            <a>{val.name}</a>
+                            <span>{val.name}</span>
                         </Link>
                     </Nav>
                 );
             });
         }
         arr.push(
-            <Nav id={menu.key}>
-                <a style={{ fontWeight: "bold" }}>{menu.name}</a>
+            <Nav key={menu.key} id={menu.key}>
+                <span style={{ fontWeight: "bold" }}>{menu.name}</span>
                 {chidArr}
             </Nav>
         );
@@ -65,11 +65,35 @@ const renderNav = () => {
     return arr;
 };
 
-const Basic = () => {
-    console.log(window.history);
-    const handleSelect = val => {
-        console.log(val);
-    };
+const renderBreadcrumbs = pathname => {
+    const arr = [];
+    const pathArr = pathname.slice(1).split("/");
+    if (pathArr && Array.isArray(pathArr)) {
+        let path = "";
+        pathArr.forEach(val => {
+            path = "/" + val;
+            console.log(path);
+            arr.push(
+                <li key={val}>
+                    <span>></span>
+                    <Link to={path}>{val}</Link>
+                </li>
+            );
+        });
+    }
+    return (
+        <ul className={style.breadcrumbs}>
+            <li>
+                <Link to="/">Home</Link>
+            </li>
+            {arr}
+        </ul>
+    );
+};
+
+const Basic = props => {
+    const { location } = props;
+    const { pathname } = location;
     return (
         <React.Fragment>
             <header className={style.header}>
@@ -102,14 +126,11 @@ const Basic = () => {
                             </SideNav>
                         </div>
                         <div className={style["aside-nav"]}>
-                            <SideNav
-                                theme={theme}
-                            >
-                                {renderNav()}
-                            </SideNav>
+                            <SideNav theme={theme}>{renderNav()}</SideNav>
                         </div>
                     </aside>
                     <div className={style.content}>
+                        {renderBreadcrumbs(pathname)}
                         <MainRoute />
                     </div>
                 </div>
@@ -118,4 +139,4 @@ const Basic = () => {
     );
 };
 
-export default Basic;
+export default withRouter(Basic);
