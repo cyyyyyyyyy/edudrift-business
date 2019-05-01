@@ -8,12 +8,14 @@ import Client from "views/client";
 import Institutional from "views/institutional";
 import TravelPartners from "views/travel-partners";
 import Competition from "views/competition";
+import UserAccountsAdd from "views/user-accounts-add";
 
 const MainRoute = () => (
     <Switch>
         <Route path="/home" component={Home} />
         <Route path="/view-site" component={ViewSite} />
-        <Route path="/user-accounts" component={UserAccounts} />
+        <Route exact path="/user-accounts" component={UserAccounts} />
+        <Route exact path="/user-accounts/add" component={UserAccountsAdd} />
         <Route path="/client" component={Client} />
         <Route path="/institutional" component={Institutional} />
         <Route path="/travel-partners" component={TravelPartners} />
