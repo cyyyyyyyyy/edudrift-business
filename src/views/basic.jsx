@@ -72,13 +72,14 @@ const renderBreadcrumbs = pathname => {
         let path = "";
         pathArr.forEach(val => {
             path = "/" + val;
-            console.log(path);
-            arr.push(
-                <li key={val}>
-                    <span>></span>
-                    <Link to={path}>{val}</Link>
-                </li>
-            );
+            if (val) {
+                arr.push(
+                    <li key={val}>
+                        <span>></span>
+                        <Link to={path}>{val}</Link>
+                    </li>
+                );
+            }
         });
     }
     return (
@@ -114,14 +115,18 @@ const Basic = props => {
                         <div className={style["aside-top"]}>
                             <SideNav theme={theme}>
                                 <Nav id="home">
-                                    <a style={{ fontWeight: "bold" }}>
-                                        Admin Home
-                                    </a>
+                                    <Link to="/home">
+                                        <a style={{ fontWeight: "bold" }}>
+                                            Admin Home
+                                        </a>
+                                    </Link>
                                 </Nav>
                                 <Nav id="view">
-                                    <a style={{ fontWeight: "bold" }}>
-                                        View Site
-                                    </a>
+                                    <Link to="/view-site">
+                                        <a style={{ fontWeight: "bold" }}>
+                                            View Site
+                                        </a>
+                                    </Link>
                                 </Nav>
                             </SideNav>
                         </div>

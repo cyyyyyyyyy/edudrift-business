@@ -6,7 +6,7 @@ import history from "utils/history";
 import Basic from "views/basic";
 
 const Routes = () => (
-    <Router history={history}>
+    <Router>
         <div>
             <Route path="/" component={Basic} />
         </div>

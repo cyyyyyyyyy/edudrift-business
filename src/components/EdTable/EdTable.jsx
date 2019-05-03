@@ -27,7 +27,8 @@ class EdTable extends React.Component {
                 MuiTableCell: {
                     root: {
                         backgroundColor: "rgba(242, 153, 74, 0.2)",
-                        borderBottom:'none'
+                        borderBottom: "none",
+                        textAlign: "center"
                     }
                 },
                 MUIDataTableSelectCell: {

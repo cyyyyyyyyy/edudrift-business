@@ -1,6 +1,5 @@
 import React from "react";
 import { withI18n } from "react-i18next";
-import { Formik } from "formik";
 
 import EdInput from "../components/EdInput";
 import EdButtom from "../components/EdButton";
