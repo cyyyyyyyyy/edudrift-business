@@ -28,7 +28,7 @@ const MainRoute = () => (
         <Route exact path="/user-accounts/edit" component={UserAccountsEdit} />
         <Route
             exact
-            path="/user-accounts/group-edit"
+            path="/user-accounts/group-edit/:userId"
             component={UserAccountsGroupEdit}
         />
         <Route

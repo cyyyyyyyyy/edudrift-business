@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { withI18n } from "react-i18next";
 import { Link } from "react-router-dom";
 import Select from "@material-ui/core/Select";
@@ -7,69 +8,42 @@ import EdInput from "components/EdInput";
 import EdButton from "components/EdButton";
 import EdTable from "components/EdTable";
 
+import { getAccounts } from "request/accounts";
+
 import style from "./user-accounts.module.scss";
 
 const columns = t => [
     { label: t("Email Address"), name: "email", options: { sort: false } },
-    { label: t("Client End"), name: "clientStatus", options: { sort: false } },
+    { label: t("Client End"), name: "client_status", options: { sort: false } },
     {
         label: t("Institution Panel"),
-        name: "institutionStatus",
-        options: { sort: false }
-    },
-    {
-        label: t("Travel Panel"),
-        name: "travelStatus",
+        name: "institution_status",
         options: { sort: false }
     },
     {
         label: t("Competition Panel"),
-        name: "competitionStatus",
+        name: "organizer_status",
         options: { sort: false }
     }
 ];
 
-const data = [
-    {
-        email: "asdad@gmail.com",
-        password: "111111",
-        clientStatus: "Disabled",
-        institutionStatus: "Disabled",
-        travelStatus: "Disabled",
-        competitionStatus: "Disabled"
-    },
-    {
-        email: "asdad@gmail.com",
-        password: "111111",
-        clientStatus: "Disabled",
-        institutionStatus: "Disabled",
-        travelStatus: "Disabled",
-        competitionStatus: "Disabled"
-    },
-    {
-        email: "asdad@gmail.com",
-        password: "111111",
-        clientStatus: "Disabled",
-        institutionStatus: "Disabled",
-        travelStatus: "disable",
-        competitionStatus: "Disabled"
-    }
-];
-
-const options = {
-    print: false,
-    search: false,
-    download: false,
-    filter: false,
-    viewColumns: false,
-    pagination: false
-};
-
 @withI18n()
 class UserAccounts extends React.Component {
     state = {
-        selectVal: ""
+        selectVal: "",
+        accounts: [],
+        tableSelect: []
     };
+
+    componentWillMount() {
+        getAccounts().then(data => {
+            if (data.success) {
+                this.setState({
+                    accounts: data.data.results
+                });
+            }
+        });
+    }
 
     setSelectVal(e) {
         this.setState({
@@ -87,17 +61,39 @@ class UserAccounts extends React.Component {
         }
     }
 
+    handleSelect(val, val2) {
+        let arr = [];
+        val2.forEach(data => arr.push(data.index));
+        this.setState({
+            tableSelect: arr
+        });
+    }
+
     render() {
         const { t } = this.props;
+        const { accounts, tableSelect } = this.state;
+        const options = {
+            print: false,
+            search: false,
+            download: false,
+            filter: false,
+            viewColumns: false,
+            pagination: true,
+            selectableRows: "multiple",
+            rowsSelected: tableSelect,
+            onRowsSelect: this.handleSelect.bind(this),
+            rowsPerPage: 1,
+            count: 100
+        };
         let tableData = [];
-        data.map(val => {
+        accounts.map(val => {
             let handleVal = {
                 ...val,
                 email: (
-                    <Link to={`/user-accounts/edit?email=${val.email}`}>
-                        <a style={{ color: "#2F80ED", cursor: "pointer" }}>
+                    <Link to={`/user-accounts/edit?userId=${val.id}`}>
+                        <div style={{ color: "#2F80ED", cursor: "pointer" }}>
                             {val.email}
-                        </a>
+                        </div>
                     </Link>
                 )
             };
@@ -153,4 +149,16 @@ class UserAccounts extends React.Component {
     }
 }
 
-export default UserAccounts;
+const mapStateToProps = state => {
+    console.log(state);
+    return {};
+};
+
+const mapDispatchToProps = dispatch => ({
+    dispatch
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(UserAccounts);

@@ -1,12 +1,19 @@
-import React from 'react';
-import Route from './routes';
+import React from "react";
+import { Provider } from "react-redux";
 
-import './i18n.js';
+import Route from "./routes";
+import store from "./store";
 
-import './style/main.scss';
+import "./i18n.js";
+
+import "./style/main.scss";
 
 const App = () => {
-  return <Route />
+    return (
+        <Provider store={store}>
+            <Route />
+        </Provider>
+    );
 };
 
 export default App;

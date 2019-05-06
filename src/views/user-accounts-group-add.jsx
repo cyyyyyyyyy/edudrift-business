@@ -4,13 +4,15 @@ import { withFormik } from "formik";
 
 import EdButton from "components/EdButton";
 
+import { addGroupAccounts } from "request/accounts";
+
 import { renderFrom, selectList } from "./user-accounts-add";
 
 import style from "./user-accounts-add.module.scss";
 
-const inputList = [
-    { name: "Email Address", key: "email", type: "tags" },
-    { name: "Password", key: "password", type: "input" }
+const inputList = t => [
+    { name: t("Email Address"), key: "email", type: "tags" },
+    { name: t("Password"), key: "password", type: "input" }
 ];
 
 @withI18n()
@@ -22,11 +24,11 @@ class UserAccountsGroupAdd extends React.Component {
                 <div>
                     <h2 className={style.title}>{t("Account and Password")}</h2>
                     <ul className={style.from}>
-                        {renderFrom(inputList, this.props)}
+                        {renderFrom(inputList(t), this.props)}
                     </ul>
                     <h2 className={style.title}>{t("Account Status")}</h2>
                     <ul className={style.from}>
-                        {renderFrom(selectList, this.props)}
+                        {renderFrom(selectList(t), this.props)}
                     </ul>
                     <EdButton type="submit">
                         {t("Add Users and Download Password")}
@@ -49,8 +51,11 @@ export default withFormik({
     validate: values => {
         return {};
     },
-    handleSubmit: (values) => {
-        console.log(values);
+    handleSubmit: async (values, { props }) => {
+        const { success } = await addGroupAccounts(values);
+        if (success) {
+            props.history.push("/user-accounts");
+        }
     },
     displayName: "BasicForm"
 })(UserAccountsGroupAdd);

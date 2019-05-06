@@ -8,7 +8,10 @@ const EdInput = withStyles({
         border: "1px solid #000",
         borderRadius: "10px",
         backgroundColor: "#fff",
-        paddingLeft: "4px"
+    },
+    input: {
+        padding: "0 0 0 4px",
+        borderRadius: "10px",
     },
     error: {
         border: "1px solid red"

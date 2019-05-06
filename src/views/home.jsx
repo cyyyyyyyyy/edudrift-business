@@ -2,40 +2,84 @@ import React from "react";
 import { withI18n } from "react-i18next";
 
 import EdInput from "../components/EdInput";
-import EdButtom from "../components/EdButton";
+import EdButton from "../components/EdButton";
+import { withFormik } from "formik";
+
+import { adminSignIn } from "request/user";
+
+import tokenHelper from "utils/tokenHelper";
 
 import style from "./home.module.scss";
 
 @withI18n()
 class Home extends React.Component {
+    componentWillMount() {
+        const { history } = this.props;
+        const token = tokenHelper.getToken();
+        if (token) {
+            history.push("/view-site");
+        }
+    }
+
     render() {
-        const { t } = this.props;
+        const { t, handleSubmit, values, handleChange } = this.props;
         return (
-            <div className={style.main}>
-                <h2 className={style.title}>{t("EduDrift Admin Panel")}</h2>
-                <ul>
-                    <li style={{ paddingBottom: 10 }}>
-                        <span className={style.label}>
-                            {t("Email Address")}*
-                        </span>
-                        <EdInput style={{ width: 250 }} />
-                    </li>
-                    <li>
-                        <span className={style.label}>{t("Password")}*</span>
-                        <EdInput style={{ width: 250 }} />
-                    </li>
-                </ul>
-                <div style={{ padding: "20px 0 0 66px" }}>
-                    <EdButtom
-                        variant="outlined"
-                        size="large"
-                        style={{ width: 120 }}
-                    >
-                        SIGN IN
-                    </EdButtom>
+            <form onSubmit={handleSubmit}>
+                <div className={style.main}>
+                    <h2 className={style.title}>{t("EduDrift Admin Panel")}</h2>
+                    <ul>
+                        <li style={{ paddingBottom: 10 }}>
+                            <span className={style.label}>
+                                {t("Email Address")}*
+                            </span>
+                            <EdInput
+                                onChange={handleChange}
+                                value={values.email}
+                                style={{ width: 250 }}
+                                name="email"
+                            />
+                        </li>
+                        <li>
+                            <span className={style.label}>
+                                {t("Password")}*
+                            </span>
+                            <EdInput
+                                style={{ width: 250 }}
+                                value={values.password}
+                                onChange={handleChange}
+                                name="password"
+                            />
+                        </li>
+                    </ul>
+                    <div style={{ padding: "20px 0 0 66px" }}>
+                        <EdButton
+                            variant="outlined"
+                            size="large"
+                            type="submit"
+                            style={{ width: 120 }}
+                        >
+                            SIGN IN
+                        </EdButton>
+                    </div>
                 </div>
-            </div>
+            </form>
         );
     }
 }
-export default Home;
+
+export default withFormik({
+    mapPropsToValues: () => {
+        return {};
+    },
+    validate: () => {
+        return {};
+    },
+    handleSubmit: async (values, { props }) => {
+        const data = await adminSignIn(values.email, values.password);
+        if (data) {
+            tokenHelper.setToken(data.token);
+            props.history.push("/view-site");
+        }
+    },
+    displayName: "BasicForm"
+})(Home);

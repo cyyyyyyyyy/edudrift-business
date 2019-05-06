@@ -21,7 +21,6 @@ const menus = [
             { key: "user-accounts", name: "User Accounts and Status" },
             { key: "client", name: "Client End Users" },
             { key: "institutional", name: "Institutional Partners" },
-            { key: "travel-partners", name: "Travel Partner" },
             { key: "competition", name: "Competition Organisers" }
         ]
     },
@@ -116,16 +115,16 @@ const Basic = props => {
                             <SideNav theme={theme}>
                                 <Nav id="home">
                                     <Link to="/home">
-                                        <a style={{ fontWeight: "bold" }}>
+                                        <span style={{ fontWeight: "bold" }}>
                                             Admin Home
-                                        </a>
+                                        </span>
                                     </Link>
                                 </Nav>
                                 <Nav id="view">
                                     <Link to="/view-site">
-                                        <a style={{ fontWeight: "bold" }}>
+                                        <span style={{ fontWeight: "bold" }}>
                                             View Site
-                                        </a>
+                                        </span>
                                     </Link>
                                 </Nav>
                             </SideNav>

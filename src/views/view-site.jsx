@@ -9,7 +9,6 @@ const userList = [
     { key: "user-accounts", name: "User Accounts and Status" },
     { key: "client", name: "Client End Users" },
     { key: "institutional", name: "Institutional Partners" },
-    { key: "travel-partners", name: "Travel Partners" },
     { key: "competition", name: "Competition Organisers" }
 ];
 

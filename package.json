@@ -8,6 +8,7 @@
         "@material-ui/icons": "^3.0.2",
         "@material-ui/lab": "^3.0.0-alpha.30",
         "@svgr/webpack": "4.1.0",
+        "axios": "^0.18.0",
         "babel-core": "7.0.0-bridge.0",
         "babel-eslint": "9.0.0",
         "babel-jest": "23.6.0",
@@ -38,6 +39,7 @@
         "jest-resolve": "23.6.0",
         "jest-watch-typeahead": "^0.2.1",
         "material-ui-chip-input": "^1.0.0-beta.16",
+        "material-ui-flat-pagination": "^3.2.0",
         "mini-css-extract-plugin": "0.5.0",
         "mui-datatables": "^2.0.0",
         "node-sass": "^4.11.0",
@@ -47,14 +49,19 @@
         "postcss-loader": "3.0.0",
         "postcss-preset-env": "6.5.0",
         "postcss-safe-parser": "4.0.1",
+        "query-string": "^6.5.0",
         "react": "^16.8.6",
         "react-app-polyfill": "^0.2.2",
         "react-dev-utils": "^8.0.0",
         "react-dom": "^16.8.6",
         "react-i18next": "^9.0.10",
+        "react-redux": "^7.0.3",
         "react-router-dom": "^4.3.1",
         "react-sidenav": "^3.1.9",
         "react-styleguidist": "^9.0.8",
+        "redux": "^4.0.1",
+        "redux-actions": "^2.6.5",
+        "redux-promise": "^0.6.0",
         "resolve": "1.10.0",
         "sass-loader": "7.1.0",
         "style-loader": "0.23.1",
@@ -152,5 +159,6 @@
                 }
             ]
         ]
-    }
+    },
+    "proxy": "http://47.98.231.231:8888"
 }
