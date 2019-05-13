@@ -75,8 +75,11 @@ export default withFormik({
         return {};
     },
     handleSubmit: async (values, { props }) => {
-        const data = await adminSignIn(values.email, values.password);
-        if (data) {
+        const { data, success } = await adminSignIn(
+            values.email,
+            values.password
+        );
+        if (success) {
             tokenHelper.setToken(data.token);
             props.history.push("/view-site");
         }

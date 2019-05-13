@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { SideNav, Nav } from "react-sidenav";
+import s3 from  'utils/s3';
 
 import MainRoute from "routes/main-route";
 import EdButton from "components/EdButton";
@@ -94,6 +95,9 @@ const renderBreadcrumbs = pathname => {
 const Basic = props => {
     const { location } = props;
     const { pathname } = location;
+    s3.listObjects({Delimiter: '/'}, function (err, data) {
+        console.log(data)
+    });
     return (
         <React.Fragment>
             <header className={style.header}>

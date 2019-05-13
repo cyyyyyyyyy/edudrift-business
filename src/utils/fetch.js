@@ -8,6 +8,10 @@ const fetch = function({ url, method, params, headers, baseURL, signIn }) {
         baseURL: "/"
     };
 
+    if (method === "get") {
+        options = { ...options, params: params };
+    }
+
     headers = {
         ...headers,
         "Content-Type": "application/json; charset=utf-8"
@@ -30,7 +34,6 @@ const fetch = function({ url, method, params, headers, baseURL, signIn }) {
         axios
             .request(options)
             .then(res => {
-                console.log(res);
                 const { status } = res;
                 if (status >= 200 && status < 300) {
                     resolve({ data: res.data, success: true });

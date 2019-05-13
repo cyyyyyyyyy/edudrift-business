@@ -10,7 +10,7 @@
     height: 100%;
 }
 .main {
-    min-height: 800px;
+    min-height: 1200px;
 }
 .aside {
     width: 280px;
@@ -33,9 +33,10 @@
 .content {
     width: 910px;
     float: left;
-    min-height: 600px;
+    min-height: 1200px;
     background: rgba(242, 153, 74, 0.2);
     padding: 6px 50px 0 40px;
+    position: relative;
 }
 .logo {
     float: left;

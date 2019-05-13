@@ -1,5 +1,6 @@
 import React from "react";
 import { withI18n } from "react-i18next";
+import { Link } from "react-router-dom";
 
 import EdButton from "../components/EdButton";
 
@@ -21,15 +22,11 @@ class ViewSite extends React.Component {
                 arr.push(
                     <li key={data.key}>
                         <span>{t(data.name)}</span>
-                        <EdButton
-                            size="small"
-                            style={{ width: "100px", marginRight: 40 }}
-                        >
-                            {t("ADD")}
-                        </EdButton>
-                        <EdButton size="small" style={{ width: "100px" }}>
-                            {t("View")}
-                        </EdButton>
+                        <Link to={`/${data.key}`}>
+                            <EdButton size="small" style={{ width: "100px" }}>
+                                {t("View")}
+                            </EdButton>
+                        </Link>
                     </li>
                 );
             });

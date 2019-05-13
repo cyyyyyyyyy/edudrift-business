@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import { withI18n } from "react-i18next";
 import { Link } from "react-router-dom";
 import Select from "@material-ui/core/Select";
@@ -7,8 +6,9 @@ import Select from "@material-ui/core/Select";
 import EdInput from "components/EdInput";
 import EdButton from "components/EdButton";
 import EdTable from "components/EdTable";
+import EdEdPagination from "components/EdPagination";
 
-import { getAccounts } from "request/accounts";
+import { getAccounts, searchAccountsByEmail } from "request/accounts";
 
 import style from "./user-accounts.module.scss";
 
@@ -32,17 +32,26 @@ class UserAccounts extends React.Component {
     state = {
         selectVal: "",
         accounts: [],
-        tableSelect: []
+        tableSelect: [],
+        total: 0,
+        offset: 0,
+        page: 1,
+        searchEmail: ""
     };
 
     componentWillMount() {
-        getAccounts().then(data => {
-            if (data.success) {
-                this.setState({
-                    accounts: data.data.results
-                });
-            }
-        });
+        this.getAccounts(this.state.page);
+    }
+
+    async getAccounts(page) {
+        const data = await getAccounts(page);
+        if (data && data.success) {
+            this.setState({
+                accounts: data.data.results,
+                total: data.data.count
+            });
+        }
+        return data;
     }
 
     setSelectVal(e) {
@@ -52,38 +61,95 @@ class UserAccounts extends React.Component {
     }
 
     goPath() {
-        const { selectVal } = this.state;
+        const { selectVal, tableSelect } = this.state;
         const { history } = this.props;
+        let ids = [];
+        tableSelect.forEach(data => {
+            ids.push(data.id);
+        });
         if (selectVal === "2") {
-            history.push("/user-accounts/group-edit");
+            if (ids.length > 0) {
+                history.push(`/user-accounts/group-edit?ids=${ids}`);
+            } else {
+                history.push("/user-accounts/group-edit");
+            }
         } else if (selectVal === "1") {
-            history.push("/user-accounts/delete");
+            if (ids.length > 0) {
+                history.push(`/user-accounts/delete?ids=${ids}`);
+            } else {
+                history.push("/user-accounts/delete");
+            }
         }
     }
 
     handleSelect(val, val2) {
-        let arr = [];
-        val2.forEach(data => arr.push(data.index));
+        const { accounts } = this.state;
+        let arr;
+        arr = accounts.filter((user, userIndex) => {
+            let flag = false;
+            val2.forEach(data => {
+                if (userIndex === data.index) {
+                    flag = true;
+                }
+            });
+            return flag;
+        });
         this.setState({
             tableSelect: arr
         });
     }
 
+    async handleClick(offset) {
+        const page = Math.ceil(offset / 15) + 1;
+        await this.getAccounts(page);
+        this.setState({ offset, page });
+    }
+
+    searchChange(e) {
+        this.setState({
+            searchEmail: e.target.value
+        });
+    }
+
+    async handleSearch() {
+        const { searchEmail, page } = this.state;
+        if (searchEmail) {
+            const { data, success } = await searchAccountsByEmail(
+                this.state.searchEmail
+            );
+            if (success) {
+                this.setState({
+                    accounts: data.results,
+                    total: data.count
+                });
+            }
+        } else {
+            this.getAccounts(page);
+        }
+    }
+
     render() {
         const { t } = this.props;
         const { accounts, tableSelect } = this.state;
+        const selectIndex = [];
+        accounts.forEach((data, index) => {
+            tableSelect.forEach(user => {
+                if (user.id === data.id) {
+                    selectIndex.push(index);
+                }
+            });
+        });
+
         const options = {
             print: false,
             search: false,
             download: false,
             filter: false,
             viewColumns: false,
-            pagination: true,
+            pagination: false,
             selectableRows: "multiple",
-            rowsSelected: tableSelect,
-            onRowsSelect: this.handleSelect.bind(this),
-            rowsPerPage: 1,
-            count: 100
+            rowsSelected: selectIndex,
+            onRowsSelect: this.handleSelect.bind(this)
         };
         let tableData = [];
         accounts.map(val => {
@@ -103,10 +169,12 @@ class UserAccounts extends React.Component {
             <div>
                 <ul className={style["user-title"]}>
                     <li>
-                        <EdInput />
+                        <EdInput onChange={this.searchChange.bind(this)} />
                     </li>
                     <li>
-                        <EdButton>{t("Search")}</EdButton>
+                        <EdButton onClick={this.handleSearch.bind(this)}>
+                            {t("Search")}
+                        </EdButton>
                     </li>
                     <li>
                         <Link to="/user-accounts/add">
@@ -143,22 +211,18 @@ class UserAccounts extends React.Component {
                     >
                         {t("GO")}
                     </EdButton>
+                    <EdEdPagination
+                        limit={15}
+                        offset={this.state.offset}
+                        total={this.state.total}
+                        size="small"
+                        style={{ float: "right" }}
+                        onClick={(e, offset) => this.handleClick(offset)}
+                    />
                 </div>
             </div>
         );
     }
 }
 
-const mapStateToProps = state => {
-    console.log(state);
-    return {};
-};
-
-const mapDispatchToProps = dispatch => ({
-    dispatch
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(UserAccounts);
+export default UserAccounts;
