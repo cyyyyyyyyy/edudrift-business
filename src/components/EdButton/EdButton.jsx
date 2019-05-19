@@ -5,23 +5,28 @@ import { withStyles } from "@material-ui/core/styles";
 const EdButton = withStyles({
     root: {
         padding: "3px 12px",
-        borderRadius: "10px"
+        borderRadius: "4px"
     },
     text: {
-        backgroundColor: "#DD864B",
+        backgroundColor: "#2C3250",
         color: "#fff",
         "&:hover": {
-            backgroundColor: "#DD864B"
+            backgroundColor: "#2C3250"
         }
     },
     outlined: {
         backgroundColor: "#fff",
-        border: "1px solid #000"
+        border: "1px solid #2C3250",
+        "&:hover": {
+            backgroundColor: "#fff"
+        }
     },
     sizeSmall: {
         padding: "1px 10px"
     },
-    sizeLarge: {}
+    sizeLarge: {
+        padding: "5px 10px"
+    }
 })(Button);
 
 export default EdButton;

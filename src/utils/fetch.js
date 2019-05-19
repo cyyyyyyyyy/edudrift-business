@@ -38,8 +38,13 @@ const fetch = function({ url, method, params, headers, baseURL, signIn }) {
                 if (status >= 200 && status < 300) {
                     resolve({ data: res.data, success: true });
                 }
+                if (status === 401) {
+                    console.log("cccc");
+                }
             })
             .catch(err => {
+                console.log(err);
+                // window.location.href = "/sign-in";
                 reject({ message: err, success: false });
             });
     });

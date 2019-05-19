@@ -1,0 +1,36 @@
+.signBox {
+    width: 500px;
+    height: 440px;
+    background-color: #fff;
+    margin: 80px auto;
+    padding: 40px 0;
+    border: 1px solid #000;
+    > li {
+        padding-bottom: 12px;
+        text-align: center;
+    }
+}
+.title {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: bold;
+    padding-bottom: 14px;
+}
+.logBtn {
+    text-align: center;
+}
+
+.check {
+    width: 400px;
+    margin: 0 auto;
+    overflow: hidden;
+    >li {
+        float: left;
+        font-size: 12px;
+        text-align: left;
+    }
+    li:nth-child(2) {
+        width: 352px;
+        padding-top: 11px;
+    }
+}

@@ -1,7 +1,7 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import { SideNav, Nav } from "react-sidenav";
-import s3 from  'utils/s3';
+import { withRouter, Link } from "react-router-dom";
+import { withI18n } from "react-i18next";
+import tokenHelper from "utils/tokenHelper";
 
 import MainRoute from "routes/main-route";
 import EdButton from "components/EdButton";
@@ -10,141 +10,56 @@ import style from "./basic.module.scss";
 
 import logo from "../static/images/logo.png";
 
-const theme = {
-    selectionBgColor: "rgba(242, 153, 74, 0.2)"
-};
-
-const menus = [
-    {
-        key: "user",
-        name: "User",
-        child: [
-            { key: "user-accounts", name: "User Accounts and Status" },
-            { key: "client", name: "Client End Users" },
-            { key: "institutional", name: "Institutional Partners" },
-            { key: "competition", name: "Competition Organisers" }
-        ]
-    },
-    {
-        key: "programs",
-        name: "Programs"
-    },
-    {
-        key: "bookings",
-        name: "Bookings"
-    },
-    {
-        key: "finance",
-        name: "Finance"
+@withI18n()
+class Basic extends React.Component {
+    componentWillMount() {
+        const { history } = this.props;
     }
-];
 
-const renderNav = () => {
-    let arr = [];
-    menus.forEach(menu => {
-        let chidArr = [];
-
-        if (menu.child) {
-            menu.child.forEach(val => {
-                chidArr.push(
-                    <Nav key={val.key} id={val.key}>
-                        <Link to={`/${val.key}`}>
-                            <span>{val.name}</span>
-                        </Link>
-                    </Nav>
-                );
-            });
-        }
-        arr.push(
-            <Nav key={menu.key} id={menu.key}>
-                <span style={{ fontWeight: "bold" }}>{menu.name}</span>
-                {chidArr}
-            </Nav>
-        );
-    });
-    return arr;
-};
-
-const renderBreadcrumbs = pathname => {
-    const arr = [];
-    const pathArr = pathname.slice(1).split("/");
-    if (pathArr && Array.isArray(pathArr)) {
-        let path = "";
-        pathArr.forEach(val => {
-            path = "/" + val;
-            if (val) {
-                arr.push(
-                    <li key={val}>
-                        <span>></span>
-                        <Link to={path}>{val}</Link>
-                    </li>
-                );
-            }
-        });
-    }
-    return (
-        <ul className={style.breadcrumbs}>
-            <li>
-                <Link to="/">Home</Link>
-            </li>
-            {arr}
-        </ul>
-    );
-};
-
-const Basic = props => {
-    const { location } = props;
-    const { pathname } = location;
-    s3.listObjects({Delimiter: '/'}, function (err, data) {
-        console.log(data)
-    });
-    return (
-        <React.Fragment>
-            <header className={style.header}>
-                <div className={style.inner}>
-                    <div className={style.logo}>
-                        <img src={logo} />
-                    </div>
-                    <div className={style.user}>
-                        <EdButton style={{ width: 120 }} size="large">
-                            112312
-                        </EdButton>
-                    </div>
-                </div>
-            </header>
-            <section className={style.main}>
-                <div className={style.inner}>
-                    <aside className={style.aside}>
-                        <div className={style["aside-top"]}>
-                            <SideNav theme={theme}>
-                                <Nav id="home">
-                                    <Link to="/home">
-                                        <span style={{ fontWeight: "bold" }}>
-                                            Admin Home
-                                        </span>
-                                    </Link>
-                                </Nav>
-                                <Nav id="view">
-                                    <Link to="/view-site">
-                                        <span style={{ fontWeight: "bold" }}>
-                                            View Site
-                                        </span>
-                                    </Link>
-                                </Nav>
-                            </SideNav>
+    render() {
+        const { t } = this.props;
+        return (
+            <React.Fragment>
+                <header className={style.header}>
+                    <div className={style.inner}>
+                        <div className={style.logo}>
+                            <img src={logo} />
                         </div>
-                        <div className={style["aside-nav"]}>
-                            <SideNav theme={theme}>{renderNav()}</SideNav>
+                        <div className={style.user}>
+                            <Link to="/sign-in">
+                                <EdButton
+                                    variant="outlined"
+                                    style={{ marginRight: 40, width: 100 }}
+                                >
+                                    {t("SIGN IN")}
+                                </EdButton>
+                            </Link>
+                            <Link to="/sign-up">
+                                <EdButton style={{ width: 100 }}>
+                                    {t("SIGN UP")}
+                                </EdButton>
+                            </Link>
                         </div>
-                    </aside>
-                    <div className={style.content}>
-                        {renderBreadcrumbs(pathname)}
+                    </div>
+                </header>
+                <section className={style.main}>
+                    <div className={style.inner}>
                         <MainRoute />
                     </div>
-                </div>
-            </section>
-        </React.Fragment>
-    );
-};
+                </section>
+                <footer>
+                    <div className={style.footLine}>
+                        <ul>
+                            <li />
+                            <li />
+                            <li />
+                        </ul>
+                    </div>
+                    <div className={style.footContent} />
+                </footer>
+            </React.Fragment>
+        );
+    }
+}
 
 export default withRouter(Basic);

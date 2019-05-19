@@ -19,7 +19,7 @@ const EdSelect = props => {
             styles={customStyles(props)}
             theme={theme => ({
                 ...theme,
-                borderRadius: 6,
+                borderRadius: 4,
                 colors: {
                     ...theme.colors,
                     neutral15:'#000',

@@ -1,0 +1,13 @@
+.from {
+    > li {
+        padding-bottom: 6px;
+    }
+    > li > span {
+        width: 220px;
+        font-weight: bold;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 14px;
+        line-height: 30px;
+    }
+}

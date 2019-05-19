@@ -52,3 +52,11 @@ export const contact_method = t => [
 ];
 
 export const Currency = t => [{ label: t("SGD"), value: "SGD" }];
+
+export const infoMenu = t => [
+    { label: t("My Events"), value: "my-events" },
+    { label: t("Notifications"), value: "notifications" },
+    { label: t("My Profile"), value: "my-profile" },
+    { label: t("My Curriculum Vitae"), value: "my-curriculum" },
+    { label: t("Frequent Travellers"), value: "frequent-travellers" }
+];
