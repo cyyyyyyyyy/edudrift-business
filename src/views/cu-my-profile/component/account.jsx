@@ -1,5 +1,5 @@
 import React from "react";
-import { withI18n } from "react-i18next";
+import { withTranslation } from "react-i18next";
 import { withFormik } from "formik";
 import cookie from "js-cookie";
 import Dialog from "@material-ui/core/Dialog";
@@ -8,7 +8,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
 import { changePassword } from "request/accounts";
-import EdButton from "components/EdButton";
+import Button from "components/EdButton";
 import tokenHelper from "utils/tokenHelper";
 
 import { renderFrom } from "views/render-form";
@@ -68,14 +68,14 @@ const formList2 = t => [
                 password: values.new_password
             });
             tokenHelper.clearToken();
-            history.push("/sign-in");
+            history.push("/cu-sign-in");
         } else {
             setFieldError("old_password", "Password Error");
         }
     },
     displayName: "BasicForm"
 })
-@withI18n()
+@withTranslation()
 class Account extends React.Component {
     state = {
         open: false
@@ -119,12 +119,12 @@ class Account extends React.Component {
                         </ul>
                     </DialogContent>
                     <DialogActions>
-                        <EdButton
+                        <Button
                             style={{ width: 200, marginRight: 20 }}
                             onClick={handleSubmit}
                         >
                             {t("Save changes")}
-                        </EdButton>
+                        </Button>
                     </DialogActions>
                 </Dialog>
             </form>

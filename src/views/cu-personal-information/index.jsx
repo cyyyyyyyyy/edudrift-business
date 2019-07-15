@@ -1,13 +1,13 @@
 import React from "react";
-import { withI18n } from "react-i18next";
+import { withTranslation } from "react-i18next";
 import { withFormik } from "formik";
 
-import { renderFrom } from "./render-form";
+import { renderFrom } from "../render-form";
 import EdEditorAvatar from "components/EdEditorAvatar";
 import countries from "utils/countries";
 import { education_stage, gender } from "utils/select-options";
 
-import style from "./personal-information.module.scss";
+import style from "./index.module.scss";
 
 const formList = t => [
     {
@@ -134,8 +134,8 @@ const formList3 = t => [
     handleSubmit: async (values, { setSubmitting, props }) => {},
     displayName: "BasicForm"
 })
-@withI18n()
-class PersonalInformation extends React.Component {
+@withTranslation()
+class CuPersonalInformation extends React.Component {
     render() {
         const { t } = this.props;
         return (
@@ -162,4 +162,4 @@ class PersonalInformation extends React.Component {
     }
 }
 
-export default PersonalInformation;
+export default CuPersonalInformation;

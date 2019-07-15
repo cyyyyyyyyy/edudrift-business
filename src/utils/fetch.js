@@ -44,7 +44,7 @@ const fetch = function({ url, method, params, headers, baseURL, signIn }) {
             })
             .catch(err => {
                 console.log(err);
-                // window.location.href = "/sign-in";
+                // window.location.href = "/cu-sign-in";
                 reject({ message: err, success: false });
             });
     });

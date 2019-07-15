@@ -1,0 +1,54 @@
+.header {
+    height: 110px;
+    background: #2c3250;
+    box-shadow: 0 16px 32px rgba(69, 90, 100, 0.4);
+    border-radius: 10px;
+    > img {
+        float: left;
+        height: 70px;
+        width: 70px;
+        vertical-align: middle;
+        padding: 20px 20px 0 25px;
+    }
+    > p {
+        float: left;
+        color: #fff;
+        font-size: 16px;
+        padding-top: 42px;
+    }
+}
+.name {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    padding: 50px 0 0 25px;
+}
+
+.main {
+    padding: 50px 0 0 0;
+}
+
+.aside {
+    width: 300px;
+    min-height: 800px;
+    float: left;
+    background: #e5e5e5;
+}
+
+.content {
+    float: left;
+    width: 760px;
+    margin-left: 20px;
+    min-height: 800px;
+}
+
+.list-title {
+    height: 64px;
+    line-height: 64px;
+    font-size: 18px;
+    background: #2c3250;
+    box-shadow: 0px 16px 32px rgba(69, 90, 100, 0.4);
+    border-radius: 10px 10px 0px 0px;
+    color: #fff;
+    padding-left: 50px;
+}

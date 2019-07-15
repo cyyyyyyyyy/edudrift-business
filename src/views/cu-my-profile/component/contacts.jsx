@@ -1,10 +1,10 @@
 import React from "react";
-import { withI18n } from "react-i18next";
+import { withTranslation } from "react-i18next";
 import { withFormik } from "formik";
+import Button from "components/EdButton";
 
 import { renderFrom } from "views/render-form";
 import style from "./style.module.scss";
-import EdButton from "../../components/EdButton";
 import { updateClients } from "request/accounts";
 import cookie from "js-cookie";
 
@@ -70,7 +70,7 @@ const formList = (t, edit) => [
     },
     displayName: "BasicForm"
 })
-@withI18n()
+@withTranslation()
 class Contacts extends React.Component {
     state = {
         edit: false
@@ -95,9 +95,9 @@ class Contacts extends React.Component {
                 <ul className={style.from}>
                     {renderFrom(formList(t, edit), this.props)}
                 </ul>
-                <EdButton onClick={this.handleEdit.bind(this)}>
+                <Button onClick={this.handleEdit.bind(this)}>
                     {!edit ? "Edit" : "Save"}
-                </EdButton>
+                </Button>
             </form>
         );
     }

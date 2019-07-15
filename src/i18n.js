@@ -1,8 +1,8 @@
-import i18n from 'i18next';
-import { reactI18nextModule } from 'react-i18next';
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
 
-import translationEN from './language/en/translation.json';
-import translationZH from './language/zh/translation.json';
+import translationEN from "./language/en/translation.json";
+import translationZH from "./language/zh/translation.json";
 
 const resources = {
     en: {
@@ -13,9 +13,9 @@ const resources = {
     }
 };
 
-i18n.use(reactI18nextModule).init({
+i18n.use(initReactI18next).init({
     resources,
-    fallbackLng: 'en',
+    fallbackLng: "en",
     debug: false,
     interpolation: {
         escapeValue: false

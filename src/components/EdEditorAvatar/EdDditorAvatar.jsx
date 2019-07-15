@@ -3,7 +3,6 @@ import AvatarEditor from "react-avatar-editor";
 import { UploadField } from "@navjobs/upload";
 
 import style from "./style.module.scss";
-import EdButton from "../EdButton";
 
 class EdEditorAvatar extends React.Component {
     state = {

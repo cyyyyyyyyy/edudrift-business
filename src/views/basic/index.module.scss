@@ -1,17 +1,16 @@
 .header {
     height: 110px;
-    background: #fff;
+    background: #e5e5e5;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 .inner {
-    width: 1280px;
+    width: 1080px;
     margin: 0 auto;
-    overflow: hidden;
     height: 100%;
 }
 .main {
     min-height: 600px;
-    background-color: #eee;
+    background-color: #e5e5e5;
 }
 .aside {
     width: 280px;
@@ -41,7 +40,7 @@
 }
 .logo {
     float: left;
-    padding: 20px 0 0 80px;
+    padding: 20px 0 0 0;
     > img {
         display: block;
         width: 233px;
@@ -49,7 +48,7 @@
     }
 }
 .user {
-    padding: 30px 30px 0 0;
+    padding: 30px 0 0 0;
     float: right;
 }
 

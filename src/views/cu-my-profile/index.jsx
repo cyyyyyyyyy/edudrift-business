@@ -1,5 +1,5 @@
 import React from "react";
-import { withI18n } from "react-i18next";
+import { withTranslation } from "react-i18next";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
@@ -10,11 +10,11 @@ import {
     UserProfile,
     Contacts,
     OtherInfo
-} from "module-components/my-profile/index";
+} from "views/cu-my-profile/component";
 
-import style from "./my-profile.module.scss";
+import style from "./index.module.scss";
 import cookie from "js-cookie";
-import { getClientsById } from "../request/accounts";
+import { getClientsById } from "../../request/accounts";
 
 function TabContainer(props) {
     return (
@@ -24,8 +24,8 @@ function TabContainer(props) {
     );
 }
 
-@withI18n()
-class MyProfile extends React.Component {
+@withTranslation()
+class CuMyProfile extends React.Component {
     state = {
         value: 0
     };
@@ -85,4 +85,4 @@ class MyProfile extends React.Component {
     }
 }
 
-export default MyProfile;
+export default CuMyProfile;

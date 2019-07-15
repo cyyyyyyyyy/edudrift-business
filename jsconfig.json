@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "target": "es2017",
+        "allowSyntheticDefaultImports": false,
+        "baseUrl": "./",
+        "paths": {
+            "views/*": ["src/views/*"],
+            "components/*": ["src/components/*"],
+            "module-components/*": ["src/module-components/*"],
+            "utils/*": ["src/utils/*"],
+            "static/*": ["src/static/*"],
+            "routes/*": ["src/routes/*"],
+            "request/*": ["src/request/*"],
+        }
+    },
+    "exclude": ["node_modules", "dist"],
+    "include": ["src"]
+}

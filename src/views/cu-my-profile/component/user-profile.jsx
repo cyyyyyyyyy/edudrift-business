@@ -1,10 +1,10 @@
 import React from "react";
-import { withI18n } from "react-i18next";
+import { withTranslation } from "react-i18next";
 import { withFormik } from "formik";
 import cookie from "js-cookie";
 
 import EdEditorAvatar from "components/EdEditorAvatar";
-import EdButton from "components/EdButton";
+import Button from "components/EdButton";
 
 import { renderFrom } from "views/render-form";
 import countries from "utils/countries";
@@ -83,7 +83,7 @@ const formList = (t, edit) => [
     },
     displayName: "BasicForm"
 })
-@withI18n()
+@withTranslation()
 class UserProfile extends React.Component {
     state = {
         edit: false
@@ -111,9 +111,9 @@ class UserProfile extends React.Component {
                 <div style={{ position: "absolute", right: 120, top: 80 }}>
                     <EdEditorAvatar />
                 </div>
-                <EdButton onClick={this.handleEdit.bind(this)}>
+                <Button onClick={this.handleEdit.bind(this)}>
                     {!edit ? "Edit" : "Save"}
-                </EdButton>
+                </Button>
             </form>
         );
     }

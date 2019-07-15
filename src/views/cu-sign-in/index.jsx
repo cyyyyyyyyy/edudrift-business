@@ -1,15 +1,15 @@
 import React from "react";
-import { withI18n } from "react-i18next";
+import { withTranslation } from "react-i18next";
 import { withFormik } from "formik";
 import cookie from "js-cookie";
 
 import EdInput from "components/EdInput";
-import EdButton from "components/EdButton";
+import Button from "components/EdButton";
 
 import { login } from "request/accounts";
 import tokenHelper from "utils/tokenHelper";
 
-import style from "./sign-in.module.scss";
+import style from "./index.module.scss";
 
 @withFormik({
     enableReinitialize: true,
@@ -27,13 +27,13 @@ import style from "./sign-in.module.scss";
             tokenHelper.setToken(data.token);
             cookie.set("userId", data.account.id);
             cookie.set("email", data.account.email);
-            history.push("/info");
+            history.push("/cu-info");
         }
     },
     displayName: "BasicForm"
 })
-@withI18n()
-class SignIn extends React.Component {
+@withTranslation()
+class CuSignIn extends React.Component {
     componentWillMount() {}
 
     render() {
@@ -66,14 +66,14 @@ class SignIn extends React.Component {
                         </div>
                     </li>
                     <li className={style.logBtn}>
-                        <EdButton
+                        <Button
                             type="submit"
                             size="large"
                             variant="outlined"
                             style={{ width: 200 }}
                         >
                             {t("Log In")}
-                        </EdButton>
+                        </Button>
                     </li>
                     <li>
                         <i className={style.line} />
@@ -84,4 +84,4 @@ class SignIn extends React.Component {
     }
 }
 
-export default SignIn;
+export default CuSignIn;

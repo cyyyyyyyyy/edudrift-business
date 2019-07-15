@@ -1,5 +1,5 @@
 import React from "react";
-import { withI18n } from "react-i18next";
+import { withTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { withFormik } from "formik";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -8,7 +8,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import { register } from "request/accounts";
 
 import EdInput from "components/EdInput";
-import EdButton from "components/EdButton";
+import Button from "components/EdButton";
 
 import style from "./sign-up.module.scss";
 
@@ -45,8 +45,8 @@ import style from "./sign-up.module.scss";
     },
     displayName: "BasicForm"
 })
-@withI18n()
-class SignIn extends React.Component {
+@withTranslation()
+class CuSignIn extends React.Component {
     renderInput(props) {
         const inputs = [];
         const { t, values, handleChange, errors } = props;
@@ -101,13 +101,13 @@ class SignIn extends React.Component {
                     {this.renderInput(this.props)}
                     <li />
                     <li className={style.logBtn}>
-                        <EdButton
+                        <Button
                             size="large"
                             style={{ width: 200 }}
                             type="submit"
                         >
                             {t("Log In")}
-                        </EdButton>
+                        </Button>
                     </li>
                     <li style={{ padding: "0 0 0" }}>
                         <ul className={style.check}>
@@ -168,4 +168,4 @@ class SignIn extends React.Component {
     }
 }
 
-export default SignIn;
+export default CuSignIn;

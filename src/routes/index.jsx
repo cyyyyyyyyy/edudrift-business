@@ -6,7 +6,8 @@ import Basic from "views/basic";
 const Routes = () => (
     <Router>
         <div>
-            <Route path="/" component={Basic} />
+            <Route path="/client" component={Basic} />
+            <Route path="/business" component={Basic} />
         </div>
     </Router>
 );

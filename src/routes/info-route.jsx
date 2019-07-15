@@ -1,11 +1,11 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import MyProfileModule from "views/my-profile";
+import CuMyProfile from "views/cu-my-profile";
 
 const InfoRoute = () => (
     <Switch>
-        <Route path="/info/my-profile" component={MyProfileModule} />
+        <Route path="/client/info/my-profile" component={CuMyProfile} />
     </Switch>
 );
 

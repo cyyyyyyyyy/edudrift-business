@@ -1,5 +1,5 @@
 import React from "react";
-import { withI18n } from "react-i18next";
+import { withTranslation } from "react-i18next";
 import { withFormik } from "formik";
 
 import { renderFrom } from "views/render-form";
@@ -33,7 +33,7 @@ const formList = t => [
     handleSubmit: async (values, { setSubmitting, props }) => {},
     displayName: "BasicForm"
 })
-@withI18n()
+@withTranslation()
 class OtherInfo extends React.Component {
     render() {
         const { t } = this.props;

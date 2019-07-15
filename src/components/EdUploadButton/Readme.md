@@ -1,4 +1,4 @@
-Basic Table:
+Index Table:
 
 ```jsx
 <EdTable/>

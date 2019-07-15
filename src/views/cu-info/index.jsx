@@ -1,5 +1,5 @@
 import React from "react";
-import { withI18n } from "react-i18next";
+import { withTranslation } from "react-i18next";
 import cookie from "js-cookie";
 import { Link } from "react-router-dom";
 
@@ -12,7 +12,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import { withStyles } from "@material-ui/core/styles";
 
-import style from "./info.module.scss";
+import style from "./index.module.scss";
 
 const EdListItem = withStyles({
     root: {
@@ -38,14 +38,13 @@ const EdListItem = withStyles({
     }
 })(ListItem);
 
-@withI18n()
-class Info extends React.Component {
+@withTranslation()
+class CuInfo extends React.Component {
     state = {};
 
     componentWillMount() {
         let userId = cookie.get("userId");
         getClientsById(userId).then(({ data }) => {
-            console.log(data);
             this.setState(data);
         });
     }
@@ -54,7 +53,7 @@ class Info extends React.Component {
         let arr = [];
         infoMenu(t).forEach(val =>
             arr.push(
-                <Link key={val.value} to={`/info/${val.value}`}>
+                <Link key={val.value} to={`/client/info/${val.value}`}>
                     <EdListItem button>{val.label}</EdListItem>
                 </Link>
             )
@@ -98,4 +97,4 @@ class Info extends React.Component {
     }
 }
 
-export default Info;
+export default CuInfo;

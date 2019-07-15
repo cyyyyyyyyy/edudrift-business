@@ -1,4 +1,4 @@
-Basic input:
+Index input:
 
 ```jsx
 <EdInput />
