@@ -1,0 +1,23 @@
+.card {
+    border: 1px solid #2c3250;
+    border-radius: 6px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px 20px 10px 0;
+    margin-bottom: 20px;
+    transition: all 0.2s;
+}
+
+.select_card {
+    border: 3px solid #2c3250;
+}
+
+.card_radio {
+    flex: 40px 0 0;
+}
+
+.card_content {
+    flex: 1;
+}

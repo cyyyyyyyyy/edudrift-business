@@ -2,7 +2,7 @@
     width: 500px;
     height: 440px;
     background-color: #fff;
-    margin: 80px auto;
+    margin: 0 auto;
     padding: 40px 0;
     border: 1px solid #000;
     > li {
@@ -24,7 +24,7 @@
     width: 400px;
     margin: 0 auto;
     overflow: hidden;
-    >li {
+    > li {
         float: left;
         font-size: 12px;
         text-align: left;

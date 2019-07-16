@@ -4,15 +4,23 @@ import { useTranslation } from "react-i18next";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
-import Button from "components/EdButton";
+
+import BpRoute from "routes/bp-route";
 
 import ellipseImg from "static/images/ellipse.png";
 
 import style from "./index.module.scss";
 
-import logo from "../../static/images/logo.png";
-
-const steps = ["Overview", "Create an ad group", "Create an ad"];
+const steps = [
+    "Overview",
+    "Program Details",
+    "Schedule/Itinerary",
+    "Highlights",
+    "Academic Policies",
+    "Eligibility",
+    "Accommodation",
+    "Registration Process"
+];
 
 const BpBasic = props => {
     const { t } = useTranslation();
@@ -28,7 +36,7 @@ const BpBasic = props => {
                 {steps.map((label, index) => {
                     return (
                         <Step key={label} onClick={() => handleStep(index)}>
-                            <StepLabel>{label}</StepLabel>
+                            <StepLabel>{t(label)}</StepLabel>
                         </Step>
                     );
                 })}
@@ -55,6 +63,7 @@ const BpBasic = props => {
                     <h4 className={style["list-title"]}>
                         {t("You’re getting started!")}
                     </h4>
+                    <BpRoute />
                 </section>
             </div>
         </React.Fragment>

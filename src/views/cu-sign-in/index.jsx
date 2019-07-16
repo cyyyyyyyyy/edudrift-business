@@ -39,7 +39,7 @@ class CuSignIn extends React.Component {
     render() {
         const { t, values, handleChange, handleSubmit } = this.props;
         return (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} style={{ paddingTop: 50 }}>
                 <ul className={style.signBox}>
                     <li>
                         <div className={style.text}>

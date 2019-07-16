@@ -18,12 +18,28 @@ const outerTheme = createMuiTheme({
         },
         MuiStepper: {
             root: {
-                backgroundColor: "#e5e5e5"
+                background: "none"
             }
         },
         MuiStepLabel: {
             root: {
                 cursor: "pointer !important"
+            }
+        },
+        MuiPaper: {
+            elevation1: {
+                "box-shadow": " 0px 16px 32px rgba(69, 90, 100, 0.4)"
+            }
+        },
+        MuiFormControlLabel: {
+            root: {
+                "margin-left": 0,
+                "margin-right": 0
+            }
+        },
+        MuiCardContent: {
+            root: {
+                padding: "30px 30px 40px 30px"
             }
         }
     },
