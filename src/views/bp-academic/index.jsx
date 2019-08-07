@@ -1,14 +1,53 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { withFormik } from "formik";
 
-import style from "./index.module.scss";
+import SchoolAcademic from "./school-academic";
 
 const BpAcademic = props => {
-    const { t } = useTranslation();
-    const [activeStep, setActiveStep] = useState(0);
+    const { handleSubmit } = props;
 
-    return <React.Fragment>12312</React.Fragment>;
+    return (
+        <form onSubmit={handleSubmit}>
+            <SchoolAcademic {...props} />
+        </form>
+    );
 };
 
-export default withRouter(BpAcademic);
+const BpAcademicForm = withFormik({
+    mapPropsToValues: () => ({
+        programType: "2",
+        fullName: "",
+        university: "",
+        department: "",
+        country: "",
+        city: ""
+    }),
+
+    validate: values => {
+        const errors = {};
+
+        if (
+            !values.fullName ||
+            !values.university ||
+            !values.department ||
+            !values.country ||
+            !values.city
+        ) {
+            errors.name = "Required";
+        }
+
+        return errors;
+    },
+
+    handleSubmit: (values, { setSubmitting }) => {
+        setTimeout(() => {
+            alert(JSON.stringify(values, null, 2));
+            setSubmitting(false);
+        }, 1000);
+    },
+
+    displayName: "BasicForm"
+})(BpAcademic);
+
+export default withRouter(BpAcademicForm);

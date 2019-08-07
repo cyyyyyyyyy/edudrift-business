@@ -6,7 +6,7 @@ const EdInput = withStyles({
     root: {
         height: "28px",
         border: "1px solid #000",
-        borderRadius: "2px",
+        borderRadius: "4px",
         backgroundColor: "#fff"
     },
     input: {

@@ -44,7 +44,7 @@ const Basic = props => {
                     <MainRoute />
                 </div>
             </section>
-            <footer>
+            <footer className={style.footer}>
                 <div className={style.footLine}>
                     <ul>
                         <li />

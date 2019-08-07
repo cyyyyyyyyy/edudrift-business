@@ -5,11 +5,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import "./style.scss";
 
 const EdDatePick = props => {
-    return (
-        <DatePicker
-            style={{ width: props.style.width || 200, height: 30 }}
-            {...props}
-        />
-    );
+    return <DatePicker {...props} width={299} />;
 };
 export default EdDatePick;

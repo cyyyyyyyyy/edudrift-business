@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
@@ -12,30 +12,40 @@ import ellipseImg from "static/images/ellipse.png";
 import style from "./index.module.scss";
 
 const steps = [
-    "Overview",
-    "Program Details",
-    "Schedule/Itinerary",
-    "Highlights",
-    "Academic Policies",
-    "Eligibility",
-    "Accommodation",
-    "Registration Process"
+    { label: "Overview", value: "overview" },
+    { label: "Program Details", value: "details" },
+    { label: "Schedule/Itinerary", value: "schedule" },
+    { label: "Highlights", value: "highlights" },
+    { label: "Academic Policies", value: "academic" },
+    { label: "Eligibility", value: "eligibility" },
+    { label: "Accommodation", value: "accommodation" },
+    { label: "Registration Process", value: "registration" }
 ];
 
 const BpBasic = props => {
+    const { history } = props;
+    const { location } = history;
     const { t } = useTranslation();
-    const [activeStep, setActiveStep] = useState(0);
+    const selectPath = location.pathname.split("/")[3];
+    const [activeStep, setActiveStep] = useState(
+        steps.findIndex(data => data.value === selectPath)
+    );
 
-    const handleStep = index => {
+    const handleStep = (index, value) => {
         setActiveStep(index);
+        history.push(`/business/program/${value}`);
     };
 
     const renderStepper = () => {
         return (
             <Stepper activeStep={activeStep} orientation="vertical">
-                {steps.map((label, index) => {
+                {steps.map((data, index) => {
+                    const { label, value } = data;
                     return (
-                        <Step key={label} onClick={() => handleStep(index)}>
+                        <Step
+                            key={value}
+                            onClick={() => handleStep(index, value)}
+                        >
                             <StepLabel>{t(label)}</StepLabel>
                         </Step>
                     );

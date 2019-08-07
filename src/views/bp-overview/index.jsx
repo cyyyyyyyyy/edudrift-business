@@ -44,18 +44,14 @@ const BpOverview = props => {
         groupData.forEach((val, index) => {
             arr.push(
                 <FormControlLabel
+                    key={val.title}
                     value={`${index}`}
                     control={
                         <CardRadio key={index}>
                             <h4 className={style.card_sub_title}>
                                 {t(val.title)}
                             </h4>
-                            <p
-                                className={style.card_text}
-                                style={{ paddingTop: 6 }}
-                            >
-                                {t(val.text)}
-                            </p>
+                            <p className={style.card_text}>{t(val.text)}</p>
                         </CardRadio>
                     }
                 />
@@ -142,50 +138,38 @@ const BpOverview = props => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <ul className={style.main}>
-                <li>
-                    <Card>
-                        <CardContent>
-                            <h3 className={style.card_title}>
-                                {t("Your program type")}
-                            </h3>
-                            <p
-                                className={style.card_text}
-                                style={{ padding: "10px 0 14px 0" }}
-                            >
-                                {t(
-                                    "Choose the program type that best represents the nature of your study program. [Important note] An accurate representation of the program provides tailored areas of input for your content"
-                                )}
-                            </p>
-                            <RadioGroup
-                                name="programType"
-                                value={programType}
-                                onChange={handleChange}
-                            >
-                                {renderCardGroup(groupData)}
-                            </RadioGroup>
-                        </CardContent>
-                    </Card>
-                </li>
-                <li>
-                    <Card>
-                        <CardContent>
-                            <h3 className={style.card_title}>
-                                {t("General Information")}
-                            </h3>
-                            <p
-                                className={style.card_text}
-                                style={{ padding: "10px 0 40px 0" }}
-                            >
-                                {t(
-                                    "Lets begin with the basic introduction to what you’re about to offer."
-                                )}
-                            </p>
-                            {renderGeneralInfo()}
-                        </CardContent>
-                    </Card>
-                </li>
-            </ul>
+            <Card style={{ marginTop: 30 }}>
+                <CardContent>
+                    <h3 className={style.card_title}>
+                        {t("Your program type")}
+                    </h3>
+                    <p className={style.card_text}>
+                        {t(
+                            "Choose the program type that best represents the nature of your study program. [Important note] An accurate representation of the program provides tailored areas of input for your content"
+                        )}
+                    </p>
+                    <RadioGroup
+                        name="programType"
+                        value={programType}
+                        onChange={handleChange}
+                    >
+                        {renderCardGroup(groupData)}
+                    </RadioGroup>
+                </CardContent>
+            </Card>
+            <Card style={{ marginTop: 30 }}>
+                <CardContent>
+                    <h3 className={style.card_title}>
+                        {t("General Information")}
+                    </h3>
+                    <p className={style.card_text}>
+                        {t(
+                            "Lets begin with the basic introduction to what you’re about to offer."
+                        )}
+                    </p>
+                    {renderGeneralInfo()}
+                </CardContent>
+            </Card>
         </form>
     );
 };

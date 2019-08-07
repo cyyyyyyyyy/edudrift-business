@@ -27,6 +27,9 @@ const outerTheme = createMuiTheme({
             }
         },
         MuiPaper: {
+            rounded: {
+                "border-radius": "6px"
+            },
             elevation1: {
                 "box-shadow": " 0px 16px 32px rgba(69, 90, 100, 0.4)"
             }

@@ -8,7 +8,8 @@ const customStyles = props => ({
         backgroundColor: "white",
         width: props.width,
         border: "1px solid #000",
-        fontSize:'14px'
+        fontSize: "14px",
+        height: "30px"
     })
 });
 
@@ -19,16 +20,17 @@ const EdSelect = props => {
             styles={customStyles(props)}
             theme={theme => ({
                 ...theme,
+                width: 120,
                 borderRadius: 4,
                 colors: {
                     ...theme.colors,
-                    neutral15:'#000',
-                    neutral20:'#000'
+                    neutral15: "#000",
+                    neutral20: "#000"
                 },
                 spacing: {
                     controlHeight: 30,
-                    baseUnit:1,
-                    menuGutter:2,
+                    baseUnit: 1,
+                    menuGutter: 2
                 }
             })}
         />

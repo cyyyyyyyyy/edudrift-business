@@ -1,0 +1,13 @@
+@import "../../views/bp-overview/index.module";
+
+.sores {
+    padding: 10px 0;
+    > li {
+        padding-bottom: 8px;
+    }
+    > li > span {
+        display: inline-block;
+        width: 25px;
+        padding-right: 25px;
+    }
+}
