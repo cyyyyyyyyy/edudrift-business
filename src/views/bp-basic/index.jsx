@@ -10,6 +10,7 @@ import BpRoute from "routes/bp-route";
 import ellipseImg from "static/images/ellipse.png";
 
 import style from "./index.module.scss";
+import { withFormik } from "formik";
 
 const steps = [
     { label: "Overview", value: "overview" },
@@ -23,7 +24,7 @@ const steps = [
 ];
 
 const BpBasic = props => {
-    const { history } = props;
+    const { history, handleSubmit } = props;
     const { location } = history;
     const { t } = useTranslation();
     const selectPath = location.pathname.split("/")[3];
@@ -32,6 +33,7 @@ const BpBasic = props => {
     );
 
     const handleStep = (index, value) => {
+        handleSubmit();
         setActiveStep(index);
         history.push(`/business/program/${value}`);
     };
@@ -73,11 +75,49 @@ const BpBasic = props => {
                     <h4 className={style["list-title"]}>
                         {t("You’re getting started!")}
                     </h4>
-                    <BpRoute />
+                    <BpRoute {...props} />
                 </section>
             </div>
         </React.Fragment>
     );
 };
 
-export default withRouter(BpBasic);
+const BpProgramForm = withFormik({
+    mapPropsToValues: () => ({
+        overview_programType: "0",
+        overview_fullName: "123123",
+        overview_university: "",
+        overview_department: "",
+        overview_country: "",
+        overview_city: "",
+        details_school_description: "",
+        details_school_interest: [
+            { label: "test1", value: "test1" },
+            { label: "test2", value: "test2" }
+        ],
+        details_school_maximum: 0,
+        details_school_introduction: "",
+        details_school_address: {
+            line1: "",
+            line2: "",
+            code: "",
+            position: []
+        },
+        details_airport: "",
+        details_station: "",
+        details_instructions: "",
+        details_website: "",
+        details_official: "",
+        details_primary: "",
+        details_secondary: "",
+        schedule_early_register: ""
+    }),
+
+    handleSubmit: (values, { setSubmitting }) => {
+        console.log(values);
+    },
+
+    displayName: "BasicForm"
+})(BpBasic);
+
+export default BpProgramForm;

@@ -1,11 +1,9 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import { withFormik } from "formik";
 import EdInput from "components/EdInput";
 
 import CardRadio from "./component/card-radio";
@@ -70,8 +68,8 @@ const BpOverview = props => {
                     <div>
                         <EdInput
                             style={{ width: "100%" }}
-                            name="fullName"
-                            value={values.fullName}
+                            name="overview_fullName"
+                            value={values.overview_fullName}
                             onChange={handleChange}
                         />
                     </div>
@@ -83,8 +81,8 @@ const BpOverview = props => {
                     <div>
                         <EdInput
                             style={{ width: "100%" }}
-                            name="university"
-                            value={values.university}
+                            name="overview_university"
+                            value={values.overview_university}
                             onChange={handleChange}
                         />
                     </div>
@@ -96,8 +94,8 @@ const BpOverview = props => {
                     <div>
                         <EdInput
                             style={{ width: "100%" }}
-                            name="department"
-                            value={values.department}
+                            name="overview_department"
+                            value={values.overview_department}
                             onChange={handleChange}
                         />
                     </div>
@@ -115,8 +113,8 @@ const BpOverview = props => {
                         </h4>
                         <EdInput
                             style={{ width: "100%" }}
-                            name="country"
-                            value={values.fullName}
+                            name="overview_country"
+                            value={values.overview_country}
                             onChange={handleChange}
                         />
                     </span>
@@ -126,8 +124,8 @@ const BpOverview = props => {
                         </h4>
                         <EdInput
                             style={{ width: "100%" }}
-                            name="city"
-                            value={values.fullName}
+                            name="overview_city"
+                            value={values.overview_city}
                             onChange={handleChange}
                         />
                     </span>
@@ -174,40 +172,4 @@ const BpOverview = props => {
     );
 };
 
-const BpOverviewForm = withFormik({
-    mapPropsToValues: () => ({
-        programType: "2",
-        fullName: "",
-        university: "",
-        department: "",
-        country: "",
-        city: ""
-    }),
-
-    validate: values => {
-        const errors = {};
-
-        if (
-            !values.fullName ||
-            !values.university ||
-            !values.department ||
-            !values.country ||
-            !values.city
-        ) {
-            errors.name = "Required";
-        }
-
-        return errors;
-    },
-
-    handleSubmit: (values, { setSubmitting }) => {
-        setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-        }, 1000);
-    },
-
-    displayName: "BasicForm"
-})(BpOverview);
-
-export default withRouter(BpOverviewForm);
+export default BpOverview;

@@ -10,23 +10,40 @@ import BpEligibility from "views/bp-eligibility";
 import BpAccommodation from "views/bp-accommodation";
 import BpRegistration from "views/bp-registration";
 
-const BpRoute = () => (
-    <Switch>
-        <Route path="/business/program/overview" component={BpOverview} />
-        <Route path="/business/program/details" component={BpDetails} />
-        <Route path="/business/program/schedule" component={BpSchedule} />
-        <Route path="/business/program/highlights" component={BpHighlights} />
-        <Route path="/business/program/academic" component={BpAcademic} />
-        <Route path="/business/program/eligibility" component={BpEligibility} />
-        <Route
-            path="/business/program/accommodation"
-            component={BpAccommodation}
-        />
-        <Route
-            path="/business/program/registration"
-            component={BpRegistration}
-        />
-    </Switch>
-);
+const BpRoute = props => {
+    return (
+        <Switch>
+            <Route
+                path="/business/program/overview"
+                render={() => <BpOverview {...props} />}
+            />
+            <Route
+                path="/business/program/details"
+                render={() => <BpDetails {...props} />}
+            />
+            <Route
+                path="/business/program/schedule"
+                component={() => <BpSchedule {...props} />}
+            />
+            <Route
+                path="/business/program/highlights"
+                component={BpHighlights}
+            />
+            <Route path="/business/program/academic" component={BpAcademic} />
+            <Route
+                path="/business/program/eligibility"
+                component={BpEligibility}
+            />
+            <Route
+                path="/business/program/accommodation"
+                component={BpAccommodation}
+            />
+            <Route
+                path="/business/program/registration"
+                component={BpRegistration}
+            />
+        </Switch>
+    );
+};
 
 export default BpRoute;

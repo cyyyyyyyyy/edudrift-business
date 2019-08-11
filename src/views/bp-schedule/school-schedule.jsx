@@ -15,6 +15,11 @@ import style from "./index.module.scss";
 
 const SchoolSchedule = props => {
     const { t } = useTranslation();
+    const { values, handleChange, setFieldValue } = props;
+
+    const handleDatePick = (key, value) => {
+        setFieldValue(key, value);
+    };
 
     const handleImportantDate = (label, data) => {};
 
@@ -115,7 +120,15 @@ const SchoolSchedule = props => {
                             {t("Register by")}
                         </Grid>
                         <Grid item xs={3}>
-                            <EdDatePick />
+                            <EdDatePick
+                                onSelect={val =>
+                                    handleDatePick(
+                                        "schedule_early_register",
+                                        val
+                                    )
+                                }
+                                selected={values["schedule_early_register"]}
+                            />
                         </Grid>
                         <Grid item xs={2}>
                             {t("Program Fee")}

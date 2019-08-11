@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import _ from "lodash";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
@@ -10,26 +11,21 @@ import EdImageCrop from "components/EdImageCrop";
 
 import style from "./index.module.scss";
 
-const interestData = [
-    { label: "test1", value: "test1" },
-    { label: "test2", value: "test2" },
-    { label: "test3", value: "test3" },
-    { label: "test4", value: "test4" },
-    { label: "test5", value: "test5" },
-    { label: "test6", value: "test6" }
-];
-
 export const RenderHostCard = props => {
     const { t } = useTranslation();
-    const { values, handleSubmit, handleChange } = props;
+    const { values, handleSubmit, handleChange, setFieldValue } = props;
+
+    const handleAddressChange = value => {
+        setFieldValue("details_school_address", value);
+    };
 
     const renderCampusPhotos = () => {
         const data = [0, 1, 2, 3, 4];
         const arr = [];
 
-        data.forEach(() => {
+        data.forEach((value, index) => {
             arr.push(
-                <Grid item sm={2.5} style={{ paddingRight: 16 }}>
+                <Grid key={value} item sm={"auto"} style={{ paddingRight: 16 }}>
                     <EdImageCrop />
                 </Grid>
             );
@@ -71,6 +67,9 @@ export const RenderHostCard = props => {
                             placeholder={t(
                                 "A brief background to the university and its merits. You may include the university’s specialisation, academic standing, recent development, its facilities, culture, vision and mission. [Max 1000 characters]"
                             )}
+                            onChange={handleChange}
+                            value={values["details_school_introduction"]}
+                            name="details_school_introduction"
                             multiline
                             style={{ width: "100%", height: 105 }}
                         />
@@ -88,23 +87,43 @@ export const RenderHostCard = props => {
                             {t("Address of Institution/University")}
                         </h4>
                         <EdInput
+                            value={values["details_school_address"].line1}
+                            onChange={e =>
+                                handleAddressChange({
+                                    ...values["details_school_address"],
+                                    line1: e.target.value
+                                })
+                            }
                             placeholder={t("Address Line 01")}
                             style={{ width: "100%", marginBottom: 16 }}
                         />
                         <EdInput
+                            value={values["details_school_address"].line2}
                             placeholder={t("Address Line 02")}
                             style={{ width: "100%", marginBottom: 16 }}
+                            onChange={e =>
+                                handleAddressChange({
+                                    ...values["details_school_address"],
+                                    line2: e.target.value
+                                })
+                            }
                         />
                         <EdInput
+                            value={values["details_school_address"].code}
                             placeholder={t("Postal Code")}
                             style={{ width: "100%" }}
+                            onChange={e =>
+                                handleAddressChange({
+                                    ...values["details_school_address"],
+                                    code: e.target.value
+                                })
+                            }
                         />
                     </Grid>
                     <Grid item xs={3} style={{ paddingLeft: 40 }}>
                         <h4 className={style.card_sub_title}>
                             {t("Institution Logo")}
                         </h4>
-                        <EdImageCrop />
                     </Grid>
                 </Grid>
                 <h4 className={style.card_sub_title}>
@@ -117,7 +136,12 @@ export const RenderHostCard = props => {
                         {t("Nearest International Airport*")}
                     </Grid>
                     <Grid item xs={6}>
-                        <EdInput style={{ width: "100%" }} />
+                        <EdInput
+                            style={{ width: "100%" }}
+                            name="details_airport"
+                            value={values["details_airport"]}
+                            onChange={handleChange}
+                        />
                     </Grid>
                 </Grid>
                 <Grid container style={{ paddingBottom: 10 }}>
@@ -125,7 +149,12 @@ export const RenderHostCard = props => {
                         {t("Nearest Subway Station*")}
                     </Grid>
                     <Grid item xs={6}>
-                        <EdInput style={{ width: "100%" }} />
+                        <EdInput
+                            style={{ width: "100%" }}
+                            name="details_station"
+                            value={values["details_station"]}
+                            onChange={handleChange}
+                        />
                     </Grid>
                 </Grid>
                 <Grid container style={{ paddingBottom: 10 }}>
@@ -133,7 +162,12 @@ export const RenderHostCard = props => {
                         {t("Additional Instructions (if any)")}
                     </Grid>
                     <Grid item xs={6}>
-                        <EdInput style={{ width: "100%" }} />
+                        <EdInput
+                            style={{ width: "100%" }}
+                            name="details_instructions"
+                            value={values["details_instructions"]}
+                            onChange={handleChange}
+                        />
                     </Grid>
                 </Grid>
             </CardContent>
@@ -141,29 +175,60 @@ export const RenderHostCard = props => {
     );
 };
 
-const SchoolDetails = props => {
-    const { t } = useTranslation();
+const renderInterestCheckbox = (options, values, setFieldValue, key) => {
+    const arr = [];
+    const selectValue = values[key];
 
-    const renderInterestCheckbox = () => {
-        const arr = [];
-        interestData.forEach(data => {
-            arr.push(
-                <Grid item xs={4} key={data.value}>
-                    <FormControlLabel
-                        control={
-                            <Checkbox value={data.value} color="primary" />
-                        }
-                        label={data.label}
-                    />
-                </Grid>
-            );
-        });
-        return (
-            <Grid container spacing={3}>
-                {arr}
+    options.forEach(data => {
+        const checked = !!_.find(selectValue, data);
+        arr.push(
+            <Grid item xs={4} key={data.value}>
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            value={data.value}
+                            color="primary"
+                            checked={checked}
+                            onChange={e => {
+                                const flag = e.target.checked;
+                                let value = [];
+                                if (flag) {
+                                    value = [...selectValue, data];
+                                } else {
+                                    value = _.differenceWith(
+                                        selectValue,
+                                        [data],
+                                        _.isEqual
+                                    );
+                                }
+                                setFieldValue(key, value);
+                            }}
+                        />
+                    }
+                    label={data.label}
+                />
             </Grid>
         );
-    };
+    });
+    return (
+        <Grid container spacing={0}>
+            {arr}
+        </Grid>
+    );
+};
+
+const SchoolDetails = props => {
+    const { t } = useTranslation();
+    const { values, handleSubmit, handleChange, setFieldValue } = props;
+
+    const interestData = [
+        { label: "test1", value: "test1" },
+        { label: "test2", value: "test2" },
+        { label: "test3", value: "test3" },
+        { label: "test4", value: "test4" },
+        { label: "test5", value: "test5" },
+        { label: "test6", value: "test6" }
+    ];
 
     return (
         <React.Fragment>
@@ -191,6 +256,9 @@ const SchoolDetails = props => {
                         placeholder={t(
                             "A write-up about the history of the program, its unique selling point, the objectives and aims of the the program that are valuable for the development of the participants taking part in it. [Max 1000 characters]"
                         )}
+                        onChange={handleChange}
+                        name="details_school_description"
+                        value={values["details_school_description"]}
                         multiline
                         style={{ width: "100%", height: 120 }}
                     />
@@ -202,10 +270,18 @@ const SchoolDetails = props => {
                             "Select all the relevant fields of interest that best represents the program."
                         )}
                     </p>
-                    {renderInterestCheckbox()}
+                    {renderInterestCheckbox(
+                        interestData,
+                        values,
+                        setFieldValue,
+                        "details_school_interest"
+                    )}
                     <h4 className={style.card_sub_title}>
                         {t("Maximum Capacity")}
                         <EdInput
+                            onChange={handleChange}
+                            name="details_school_maximum"
+                            value={values["details_school_maximum"]}
                             style={{ width: 80, margin: "0 15px 0 40px" }}
                         />
                         <span className={style.card_text}>
@@ -230,7 +306,12 @@ const SchoolDetails = props => {
                             {t("Program Website")}
                         </Grid>
                         <Grid item xs={8}>
-                            <EdInput style={{ width: "100%" }} />
+                            <EdInput
+                                style={{ width: "100%" }}
+                                name="details_website"
+                                value={values["details_website"]}
+                                onChange={handleChange}
+                            />
                         </Grid>
                     </Grid>
                     <Grid container style={{ paddingBottom: 10 }}>
@@ -238,29 +319,38 @@ const SchoolDetails = props => {
                             {t("Official Contact Email")}
                         </Grid>
                         <Grid item xs={8}>
-                            <EdInput style={{ width: "100%" }} />
+                            <EdInput
+                                style={{ width: "100%" }}
+                                name="details_official"
+                                value={values["details_official"]}
+                                onChange={handleChange}
+                            />
                         </Grid>
                     </Grid>
                     <Grid container style={{ paddingBottom: 10 }}>
                         <Grid item xs={4}>
                             {t("Primary Contact Number")}
                         </Grid>
-                        <Grid item xs={4} style={{ paddingRight: 30 }}>
-                            <EdInput style={{ width: "100%" }} />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <EdInput style={{ width: "100%" }} />
+                        <Grid item xs={8}>
+                            <EdInput
+                                style={{ width: "100%" }}
+                                name="details_primary"
+                                value={values["details_primary"]}
+                                onChange={handleChange}
+                            />
                         </Grid>
                     </Grid>
                     <Grid container style={{ paddingBottom: 10 }}>
                         <Grid item xs={4}>
                             {t("Secondary Contact Number*")}
                         </Grid>
-                        <Grid item xs={4} style={{ paddingRight: 30 }}>
-                            <EdInput style={{ width: "100%" }} />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <EdInput style={{ width: "100%" }} />
+                        <Grid item xs={8}>
+                            <EdInput
+                                style={{ width: "100%" }}
+                                name="details_secondary"
+                                value={values["details_secondary"]}
+                                onChange={handleChange}
+                            />
                         </Grid>
                     </Grid>
                 </CardContent>
