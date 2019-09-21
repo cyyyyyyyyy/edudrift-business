@@ -5,7 +5,7 @@ import { withFormik } from "formik";
 import SchoolSchedule from "./school-schedule";
 
 const BpSchedule = props => {
-    return <SchoolSchedule {...props} />;
+  return <SchoolSchedule {...props} />;
 };
 
 export default BpSchedule;

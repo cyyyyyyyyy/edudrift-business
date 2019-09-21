@@ -10,55 +10,55 @@ import "./i18n.js";
 import "./style/main.scss";
 
 const outerTheme = createMuiTheme({
-    overrides: {
-        MuiStepConnector: {
-            lineVertical: {
-                "min-height": "70px"
-            }
-        },
-        MuiStepper: {
-            root: {
-                background: "none"
-            }
-        },
-        MuiStepLabel: {
-            root: {
-                cursor: "pointer !important"
-            }
-        },
-        MuiPaper: {
-            rounded: {
-                "border-radius": "6px"
-            },
-            elevation1: {
-                "box-shadow": " 0px 16px 32px rgba(69, 90, 100, 0.4)"
-            }
-        },
-        MuiFormControlLabel: {
-            root: {
-                "margin-left": 0,
-                "margin-right": 0
-            }
-        },
-        MuiCardContent: {
-            root: {
-                padding: "30px 30px 40px 30px"
-            }
-        }
+  overrides: {
+    MuiStepConnector: {
+      lineVertical: {
+        "min-height": "70px"
+      }
     },
-    palette: {
-        primary: { main: "#2C3250" }
+    MuiStepper: {
+      root: {
+        background: "none"
+      }
+    },
+    MuiStepLabel: {
+      root: {
+        cursor: "pointer !important"
+      }
+    },
+    MuiPaper: {
+      rounded: {
+        "border-radius": "6px"
+      },
+      elevation1: {
+        "box-shadow": " 0px 16px 32px rgba(69, 90, 100, 0.4)"
+      }
+    },
+    MuiFormControlLabel: {
+      root: {
+        "margin-left": 0,
+        "margin-right": 0
+      }
+    },
+    MuiCardContent: {
+      root: {
+        padding: "30px 30px 40px 30px"
+      }
     }
+  },
+  palette: {
+    primary: { main: "#2C3250" }
+  }
 });
 
 const App = () => {
-    return (
-        <MuiThemeProvider theme={outerTheme}>
-            <Provider store={store}>
-                <Route />
-            </Provider>
-        </MuiThemeProvider>
-    );
+  return (
+    <MuiThemeProvider theme={outerTheme}>
+      <Provider store={store}>
+        <Route />
+      </Provider>
+    </MuiThemeProvider>
+  );
 };
 
 export default App;

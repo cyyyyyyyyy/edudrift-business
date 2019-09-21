@@ -5,49 +5,49 @@ import { withFormik } from "formik";
 import SchoolAcademic from "./school-academic";
 
 const BpAcademic = props => {
-    const { handleSubmit } = props;
+  const { handleSubmit } = props;
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <SchoolAcademic {...props} />
-        </form>
-    );
+  return (
+    <form onSubmit={handleSubmit}>
+      <SchoolAcademic {...props} />
+    </form>
+  );
 };
 
 const BpAcademicForm = withFormik({
-    mapPropsToValues: () => ({
-        programType: "2",
-        fullName: "",
-        university: "",
-        department: "",
-        country: "",
-        city: ""
-    }),
+  mapPropsToValues: () => ({
+    programType: "2",
+    fullName: "",
+    university: "",
+    department: "",
+    country: "",
+    city: ""
+  }),
 
-    validate: values => {
-        const errors = {};
+  validate: values => {
+    const errors = {};
 
-        if (
-            !values.fullName ||
-            !values.university ||
-            !values.department ||
-            !values.country ||
-            !values.city
-        ) {
-            errors.name = "Required";
-        }
+    if (
+      !values.fullName ||
+      !values.university ||
+      !values.department ||
+      !values.country ||
+      !values.city
+    ) {
+      errors.name = "Required";
+    }
 
-        return errors;
-    },
+    return errors;
+  },
 
-    handleSubmit: (values, { setSubmitting }) => {
-        setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-        }, 1000);
-    },
+  handleSubmit: (values, { setSubmitting }) => {
+    setTimeout(() => {
+      alert(JSON.stringify(values, null, 2));
+      setSubmitting(false);
+    }, 1000);
+  },
 
-    displayName: "BasicForm"
+  displayName: "BasicForm"
 })(BpAcademic);
 
 export default withRouter(BpAcademicForm);

@@ -9,17 +9,17 @@ import CuInfo from "views/cu-info";
 import BpBasic from "views/bp-basic";
 
 const MainRoute = () => (
-    <Switch>
-        <Route path="/client/sign-in" component={CuSignIn} />
-        <Route path="/client/sign-up" component={CuSignUp} />
-        <Route
-            path="/client/personal-information"
-            component={CuPersonalInformation}
-        />
-        <Route path="/client/info" component={CuInfo} />
+  <Switch>
+    <Route path="/client/sign-in" component={CuSignIn} />
+    <Route path="/client/sign-up" component={CuSignUp} />
+    <Route
+      path="/client/personal-information"
+      component={CuPersonalInformation}
+    />
+    <Route path="/client/info" component={CuInfo} />
 
-        <Route path="/business/program" component={BpBasic} />
-    </Switch>
+    <Route path="/business/program" component={BpBasic} />
+  </Switch>
 );
 
 export default MainRoute;

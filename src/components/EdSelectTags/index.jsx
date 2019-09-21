@@ -1,1 +1,1 @@
-export { default } from './EdSelectTags';
+export { default } from "./EdSelectTags";

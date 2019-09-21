@@ -1,1 +1,1 @@
-export { default } from './EdUploadButton';
+export { default } from "./EdUploadButton";

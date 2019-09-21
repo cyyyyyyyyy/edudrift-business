@@ -1,5 +1,5 @@
 Index Table:
 
 ```jsx
-<EdTable/>
+<EdTable />
 ```

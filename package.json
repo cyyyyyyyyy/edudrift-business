@@ -45,6 +45,7 @@
         "material-ui-chip-input": "^1.0.0-beta.16",
         "material-ui-flat-pagination": "^3.2.0",
         "mini-css-extract-plugin": "0.5.0",
+        "minio": "^7.0.11",
         "moment": "^2.24.0",
         "mui-datatables": "^2.0.0",
         "node-sass": "^4.11.0",
@@ -90,7 +91,8 @@
         "test": "node scripts/test.js",
         "styleguide": "styleguidist server",
         "styleguide:build": "styleguidist build -s public",
-        "package": "rollup -c rollup.config.js"
+        "package": "rollup -c rollup.config.js",
+        "format": "prettier --write \"**/*.{js,jsx,css,md,pcss}\""
     },
     "eslintConfig": {
         "extends": "react-app"

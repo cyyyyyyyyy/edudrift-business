@@ -8,50 +8,50 @@ import Accommodation from "./accommodation";
 import style from "./index.module.scss";
 
 const BpAccommodation = props => {
-    const { t } = useTranslation();
-    const { handleSubmit } = props;
+  const { t } = useTranslation();
+  const { handleSubmit } = props;
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <Accommodation {...props} />
-        </form>
-    );
+  return (
+    <form onSubmit={handleSubmit}>
+      <Accommodation {...props} />
+    </form>
+  );
 };
 
 const BpAccommodationForm = withFormik({
-    mapPropsToValues: () => ({
-        programType: "2",
-        fullName: "",
-        university: "",
-        department: "",
-        country: "",
-        city: ""
-    }),
+  mapPropsToValues: () => ({
+    programType: "2",
+    fullName: "",
+    university: "",
+    department: "",
+    country: "",
+    city: ""
+  }),
 
-    validate: values => {
-        const errors = {};
+  validate: values => {
+    const errors = {};
 
-        if (
-            !values.fullName ||
-            !values.university ||
-            !values.department ||
-            !values.country ||
-            !values.city
-        ) {
-            errors.name = "Required";
-        }
+    if (
+      !values.fullName ||
+      !values.university ||
+      !values.department ||
+      !values.country ||
+      !values.city
+    ) {
+      errors.name = "Required";
+    }
 
-        return errors;
-    },
+    return errors;
+  },
 
-    handleSubmit: (values, { setSubmitting }) => {
-        setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-        }, 1000);
-    },
+  handleSubmit: (values, { setSubmitting }) => {
+    setTimeout(() => {
+      alert(JSON.stringify(values, null, 2));
+      setSubmitting(false);
+    }, 1000);
+  },
 
-    displayName: "BasicForm"
+  displayName: "BasicForm"
 })(BpAccommodation);
 
 export default withRouter(BpAccommodationForm);

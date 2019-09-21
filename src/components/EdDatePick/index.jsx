@@ -1,1 +1,1 @@
-export { default } from './EdDatePick';
+export { default } from "./EdDatePick";

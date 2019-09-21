@@ -15,86 +15,86 @@ import { withStyles } from "@material-ui/core/styles";
 import style from "./index.module.scss";
 
 const EdListItem = withStyles({
-    root: {
-        backgroundColor: "#2C3250",
-        boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-        borderBottom: "2px solid #eee",
-        color: "#fff",
-        "&$selected, &$selected:hover, &$selected:focus": {
-            backgroundColor: "#fff",
-            color: "#2C3250"
-        }
-    },
-    button: {
-        "&:hover": {
-            backgroundColor: "#2C3250"
-        },
-        "&:focus": {
-            backgroundColor: "#2C3250"
-        }
-    },
-    selected: {
-        backgroundColor: "#fff"
+  root: {
+    backgroundColor: "#2C3250",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    borderBottom: "2px solid #eee",
+    color: "#fff",
+    "&$selected, &$selected:hover, &$selected:focus": {
+      backgroundColor: "#fff",
+      color: "#2C3250"
     }
+  },
+  button: {
+    "&:hover": {
+      backgroundColor: "#2C3250"
+    },
+    "&:focus": {
+      backgroundColor: "#2C3250"
+    }
+  },
+  selected: {
+    backgroundColor: "#fff"
+  }
 })(ListItem);
 
 @withTranslation()
 class CuInfo extends React.Component {
-    state = {};
+  state = {};
 
-    componentWillMount() {
-        let userId = cookie.get("userId");
-        getClientsById(userId).then(({ data }) => {
-            this.setState(data);
-        });
+  componentWillMount() {
+    let userId = cookie.get("userId");
+    getClientsById(userId).then(({ data }) => {
+      this.setState(data);
+    });
+  }
+
+  renderMenus = t => {
+    let arr = [];
+    infoMenu(t).forEach(val =>
+      arr.push(
+        <Link key={val.value} to={`/client/info/${val.value}`}>
+          <EdListItem button>{val.label}</EdListItem>
+        </Link>
+      )
+    );
+    return arr;
+  };
+
+  render() {
+    const { t } = this.props;
+    const { nickname, nationality } = this.state;
+    let country = "";
+    if (nationality) {
+      country = countries.find(val => val.value === nationality).label;
     }
-
-    renderMenus = t => {
-        let arr = [];
-        infoMenu(t).forEach(val =>
-            arr.push(
-                <Link key={val.value} to={`/client/info/${val.value}`}>
-                    <EdListItem button>{val.label}</EdListItem>
-                </Link>
-            )
-        );
-        return arr;
-    };
-
-    render() {
-        const { t } = this.props;
-        const { nickname, nationality } = this.state;
-        let country = "";
-        if (nationality) {
-            country = countries.find(val => val.value === nationality).label;
-        }
-        return (
-            <section className={style.warp}>
-                <header className={style.header}>
-                    <img className={style.photo} />
-                    <ul className={style.info}>
-                        <li>
-                            <h2>{`${nickname}`} </h2>
-                        </li>
-                        <li>
-                            <p>{country}</p>
-                        </li>
-                        <li>
-                            <span>Manage Profile</span>
-                        </li>
-                    </ul>
-                </header>
-                <div className={style.main}>
-                    <aside className={style.aside}>
-                        <List>{this.renderMenus(t)}</List>
-                    </aside>
-                    <div className={style.content}>
-                        <InfoRoute />
-                    </div>
-                </div>
-            </section>
-        );
-    }
+    return (
+      <section className={style.warp}>
+        <header className={style.header}>
+          <img className={style.photo} />
+          <ul className={style.info}>
+            <li>
+              <h2>{`${nickname}`} </h2>
+            </li>
+            <li>
+              <p>{country}</p>
+            </li>
+            <li>
+              <span>Manage Profile</span>
+            </li>
+          </ul>
+        </header>
+        <div className={style.main}>
+          <aside className={style.aside}>
+            <List>{this.renderMenus(t)}</List>
+          </aside>
+          <div className={style.content}>
+            <InfoRoute />
+          </div>
+        </div>
+      </section>
+    );
+  }
 }
 
 export default CuInfo;

@@ -7,5 +7,5 @@ Index input:
 error input:
 
 ```jsx
-<EdInput error={true}/>
+<EdInput error={true} />
 ```

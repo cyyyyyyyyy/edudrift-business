@@ -1,1 +1,1 @@
-export { default } from './EdTable';
+export { default } from "./EdTable";
