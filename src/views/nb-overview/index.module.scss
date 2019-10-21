@@ -1,0 +1,45 @@
+.main_header {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  align-items: center;
+  span,
+  h5 {
+    vertical-align: middle;
+  }
+}
+
+.add_icon {
+  font-size: 20px !important;
+  padding-left: 4px;
+}
+.card {
+  margin-bottom: 24px;
+  height: 260px;
+}
+.sub {
+  display: flex;
+  > span {
+    padding-right: 8px;
+  }
+}
+
+.content {
+  height: 150px;
+  padding-top: 40px;
+}
+
+.footer {
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.event_header {
+  border-bottom: 1px solid #eee;
+}
+
+.event_list {
+  height: 130px;
+  border-bottom: 1px solid #eee;
+  padding-top: 20px;
+}

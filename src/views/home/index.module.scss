@@ -1,0 +1,44 @@
+.root {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.aside {
+  flex: 0 0 240px;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  flex: 0 0 70px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.main {
+  flex: 1 1 auto;
+  background: rgba(239, 241, 244, 1);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 18px;
+}
+
+.notifi {
+  font-size: 26px !important;
+}
+
+.avatar {
+  margin: 0 0 0 20px;
+}
+
+.name {
+  padding: 0 20px 0 14px;
+}

@@ -67,13 +67,13 @@ time,
 mark,
 audio,
 video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
 }
 h1,
 h2,
@@ -83,26 +83,34 @@ h5,
 h6,
 em,
 i {
-    font-weight: 100;
-    font-style: normal;
-    color: #000;
+  font-weight: 100;
+  font-style: normal;
+  color: #000;
 }
 ul,
 ol,
 li {
-    list-style-type: none;
+  list-style-type: none;
 }
 a {
-    color: #000;
-    text-decoration: none;
-    outline: 0;
+  color: #000;
+  text-decoration: none;
+  outline: 0;
 }
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-
-input:-webkit-autofill,select:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
+input:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
 }
 
+html,
+body,
+#root {
+  font-size: 14px;
+  height: 100%;
+}
+
+@import "~antd/dist/antd.css";

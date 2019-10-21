@@ -1,0 +1,35 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.table {
+  flex: 1 1 auto;
+  padding: 12px;
+}
+
+.header {
+  flex: 0 0 52px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.tabs {
+  min-height: 52px;
+}
+
+.bar {
+  flex: 1 1 auto;
+}
+
+.search {
+  flex: 0 0 240px;
+  margin-right: 80px;
+}
+
+.event {
+  flex: 0 0 140px;
+}

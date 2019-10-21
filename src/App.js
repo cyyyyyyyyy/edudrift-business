@@ -10,6 +10,11 @@ import "./i18n.js";
 import "./style/main.scss";
 
 const outerTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#266BF0"
+    }
+  },
   overrides: {
     MuiStepConnector: {
       lineVertical: {
@@ -29,9 +34,6 @@ const outerTheme = createMuiTheme({
     MuiPaper: {
       rounded: {
         "border-radius": "6px"
-      },
-      elevation1: {
-        "box-shadow": " 0px 16px 32px rgba(69, 90, 100, 0.4)"
       }
     },
     MuiFormControlLabel: {
@@ -39,15 +41,7 @@ const outerTheme = createMuiTheme({
         "margin-left": 0,
         "margin-right": 0
       }
-    },
-    MuiCardContent: {
-      root: {
-        padding: "30px 30px 40px 30px"
-      }
     }
-  },
-  palette: {
-    primary: { main: "#2C3250" }
   }
 });
 

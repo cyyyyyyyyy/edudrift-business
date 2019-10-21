@@ -1,25 +1,47 @@
-import React, { useState } from "react";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import SendIcon from "@material-ui/icons/Send";
+import React from "react";
+import Badge from "@material-ui/core/Badge/Badge";
+import NotificationsIcon from "@material-ui/icons/NotificationImportant";
+import Avatar from "@material-ui/core/Avatar";
+import Typography from "@material-ui/core/Typography";
+import { withRouter } from "react-router-dom";
 
-const Home = () => {
-  const renderNav = () => {
-    return (
-      <List component="nav" aria-labelledby="nested-list-subheader">
-        <ListItem button>
-          <ListItemIcon>
-            <SendIcon />
-          </ListItemIcon>
-          <ListItemText primary="Sent mail">12312</ListItemText>
-        </ListItem>
-      </List>
-    );
+import Nav from "./component/nav";
+import HomeRoute from "routes/home-route";
+
+import style from "./index.module.scss";
+
+const Home = props => {
+  const { history } = props;
+  const handleChange = data => {
+    history.push(data.path);
   };
 
-  return <div />;
+  return (
+    <div className={style.root}>
+      <aside className={style.aside}>
+        <Nav onChange={handleChange} />
+      </aside>
+      <section className={style.content}>
+        <header className={style.header}>
+          <Badge badgeContent={12} color="primary">
+            <NotificationsIcon style={{ fontSize: 28 }} />
+          </Badge>
+          <Avatar className={style.avatar} />
+          <div className={style.name}>
+            <Typography variant="subtitle1" display="block">
+              overline text
+            </Typography>
+            <Typography variant="caption" display="block">
+              caption text
+            </Typography>
+          </div>
+        </header>
+        <div className={style.main}>
+          <HomeRoute />
+        </div>
+      </section>
+    </div>
+  );
 };
 
-export default Home;
+export default withRouter(Home);

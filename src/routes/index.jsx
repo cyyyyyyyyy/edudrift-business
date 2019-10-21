@@ -1,14 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Basic from "views/basic";
+import Home from "views/home";
 
 const Routes = () => (
   <Router>
-    <div>
-      <Route path="/client" component={Basic} />
-      <Route path="/business" component={Basic} />
-    </div>
+    <Switch>
+      <Route path="/" component={Home} />
+    </Switch>
   </Router>
 );
 
