@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { withRouter, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import MainRoute from "routes/main-route";
+import ClientMainRoute from "routes/main-route";
 import Button from "components/EdButton";
 
 import style from "./index.module.scss";
@@ -39,7 +39,7 @@ const Basic = props => {
       </header>
       <section className={style.main}>
         <div className={style.inner}>
-          <MainRoute />
+          <ClientMainRoute />
         </div>
       </section>
       <footer className={style.footer}>

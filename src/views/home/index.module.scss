@@ -29,6 +29,8 @@
   overflow-y: auto;
   overflow-x: hidden;
   padding: 18px;
+  display: flex;
+  flex-direction: column;
 }
 
 .notifi {

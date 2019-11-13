@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import { withRouter } from "react-router-dom";
 
 import Nav from "./component/nav";
-import HomeRoute from "routes/home-route";
+import MainRoute from "routes/nb-main-route";
 
 import style from "./index.module.scss";
 
@@ -37,7 +37,7 @@ const Home = props => {
           </div>
         </header>
         <div className={style.main}>
-          <HomeRoute />
+          <MainRoute />
         </div>
       </section>
     </div>

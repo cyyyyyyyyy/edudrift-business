@@ -1,0 +1,16 @@
+.main {
+  background-color: #fff;
+  flex: 1 1 auto;
+  padding: 0 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 1 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 30px;
+}
