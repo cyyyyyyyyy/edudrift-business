@@ -2,24 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="783c92a0-a3b3-4211-9ca5-2e8697146b01" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/store/program.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/submit/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/component/base-info/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/base-info/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/component/cost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/cost/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/component/plan/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/plan/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/component/program-type/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/program-type/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/component/requirement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/requirement/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/component/show/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/show/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/component/stay/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/stay/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-overview/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-overview/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-overview/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-overview/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/precache-manifest.c22f8acc1c58a00c2bb92a56b2d1a4ad.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/service-worker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/css/2.ce41ca98.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/css/2.ce41ca98.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/css/main.240480fc.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/css/main.240480fc.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/2.ce35b874.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/2.ce35b874.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.7e0ebb50.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.7e0ebb50.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/runtime~main.d653cc00.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/runtime~main.d653cc00.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/media/logo.7913e28e.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -86,8 +83,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/nb-overview/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
-              <caret line="86" selection-start-line="86" selection-end-line="86" />
+            <state relative-caret-position="162">
+              <caret line="84" column="17" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="17" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -338,37 +335,6 @@
               <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
               <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="nb-overview" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -494,18 +460,17 @@
       <workItem from="1572848450863" duration="12921000" />
       <workItem from="1573649931515" duration="8502000" />
       <workItem from="1573782085560" duration="12127000" />
-      <workItem from="1574061821296" duration="8363000" />
+      <workItem from="1574061821296" duration="8870000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="392114000" />
+    <option name="totallyTimeSpent" value="392621000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49873737" visible="true" weight="0.2651622" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49873737" visible="true" weight="0.2651622" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.5012626" side_tool="true" weight="0.33593196" />
@@ -519,7 +484,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32919255" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50070524" side_tool="true" weight="0.32919255" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4992948" weight="0.3341615" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4992948" visible="true" weight="0.3341615" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32923833" />
       <window_info anchor="bottom" id="Thumbnails" order="12" weight="0.32919255" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -957,8 +922,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/nb-overview/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="162">
+          <caret line="84" column="17" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="17" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
