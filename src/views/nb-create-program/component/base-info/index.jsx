@@ -144,7 +144,7 @@ const BaseInfo = props => {
       <Row>
         <Col span={5} style={{ paddingRight: 40 }}>
           <Form.Item label="项目开始时间">
-            {getFieldDecorator("project_name", {
+            {getFieldDecorator("project_start", {
               rules: [
                 { required: true, message: "Please input your username!" }
               ]
@@ -178,11 +178,11 @@ const BaseInfo = props => {
       </div>
       <Title level={4}>项目成型要求</Title>
       <Row>{renderList(list)}</Row>
-      <div>
+      <div style={{ paddingTop: 30 }}>
         <Button type="primary">NEXT STEP</Button>
       </div>
     </Form>
   );
 };
 
-export default Form.create({ name: "base_info" })(BaseInfo);
+export default BaseInfo;

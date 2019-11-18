@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import {
-  DatePicker,
   Checkbox,
-  Select,
   Typography,
   Form,
   Input,
@@ -11,12 +9,16 @@ import {
   Button,
   Radio
 } from "antd";
-import moment from "moment";
 import style from "../program-type/index.module.scss";
 
 const { Title, Text } = Typography;
-const { TextArea } = Input;
 const dateFormat = "YYYY/MM/DD";
+
+const radioStyle = {
+  display: "block",
+  height: "30px",
+  lineHeight: "30px"
+};
 
 const list = [
   { label: "最少学生", value: "Apple" },
@@ -43,8 +45,13 @@ const data = [
 ];
 
 const Requirement = props => {
-  const { getFieldDecorator, getFieldsValue, setFieldsValue } = props.form;
-
+  const {
+    getFieldDecorator,
+    getFieldsValue,
+    setFieldsValue,
+    getFieldValue
+  } = props.form;
+  getFieldDecorator("keys", { initialValue: [1, 2, 3] });
   const renderRadio = data => {
     const arr = [];
     data.forEach(item => {
@@ -67,6 +74,30 @@ const Requirement = props => {
         </Col>
       );
     });
+    return arr;
+  };
+
+  const addMore = () => {
+    const keys = getFieldValue("keys");
+    const nextKeys = keys.concat(keys.length++);
+    setFieldsValue({
+      keys: nextKeys
+    });
+  };
+
+  const renderMore = () => {
+    const keys = getFieldValue("keys");
+
+    const arr = [];
+    if (keys) {
+      keys.forEach((k, index) => {
+        arr.push(
+          <li key={index} style={{ paddingTop: 10 }}>
+            {getFieldDecorator(`moreInfo[${k}]`, {})(<Input />)}
+          </li>
+        );
+      });
+    }
     return arr;
   };
 
@@ -127,9 +158,39 @@ const Requirement = props => {
         Information of the participants that you may require for successful
         registration.
       </Text>
-      <Title level={4}>是否需要额外的报名信息？e</Title>
+      <Title level={4}>是否需要额外的报名信息？</Title>
+      <div>
+        {getFieldDecorator("max_age", {
+          rules: [{ required: true, message: "Please input your username!" }]
+        })(
+          <Radio.Group>
+            <Radio style={radioStyle} value={1}>
+              No. The above information is sufficient.
+            </Radio>
+            <Radio style={radioStyle} value={2}>
+              Yes. The program requires the following additional information:
+            </Radio>
+          </Radio.Group>
+        )}
+      </div>
+      <div style={{ paddingTop: 10 }}>
+        {getFieldDecorator("age", {
+          rules: [{ required: true, message: "Please input your username!" }]
+        })(
+          <Checkbox.Group style={{ width: "80%" }}>
+            {renderCheck(data)}
+          </Checkbox.Group>
+        )}
+      </div>
+      <div>
+        <ul style={{ paddingTop: 10, width: 500 }}>{renderMore()}</ul>
+        <a onClick={addMore}>add</a>
+      </div>
+      <div style={{ paddingTop: 30 }}>
+        <Button type="primary">NEXT STEP</Button>
+      </div>
     </Form>
   );
 };
 
-export default Form.create({ name: "plan" })(Requirement);
+export default Requirement;

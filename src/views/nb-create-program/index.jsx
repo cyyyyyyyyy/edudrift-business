@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Steps } from "antd";
+import { useSelector, useDispatch } from "react-redux";
 
 import ProgramType from "./component/program-type";
 import BaseInfo from "./component/base-info";
@@ -8,6 +9,9 @@ import Show from "./component/show";
 import Requirement from "./component/requirement";
 import Stay from "./component/stay";
 import Cost from "./component/cost";
+import Submit from "./component/submit";
+
+import { setProgram } from "../../store/program";
 
 import style from "./index.module.scss";
 
@@ -41,28 +45,52 @@ const steps = [
   {
     title: "费用",
     content: "Last-content"
+  },
+  {
+    title: "提交",
+    content: "Last-content"
   }
 ];
 
-const NbCreateProgram = () => {
-  const [current, setCurrent] = useState(4);
+const NbCreateProgram = props => {
+  const { form } = props;
+  const [current, setCurrent] = useState(0);
+  const programData = useSelector(state => state.program);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      setProgram({
+        project_type: Form.createFormField({
+          name: "project_type",
+          value: "1"
+        })
+      })
+    );
+  }, []);
+
+  const onChange = value => {
+    dispatch(setProgram({ ...programData, ...value }));
+  };
 
   const renderType = () => {
     switch (current) {
       case 0:
-        return <ProgramType />;
+        return <ProgramType form={form} />;
       case 1:
-        return <BaseInfo />;
+        return <BaseInfo form={form} />;
       case 2:
-        return <Plan />;
+        return <Plan form={form} />;
       case 3:
-        return <Show />;
+        return <Show form={form} />;
       case 4:
-        return <Requirement />;
+        return <Requirement form={form} />;
       case 5:
-        return <Stay />;
+        return <Stay form={form} />;
       case 6:
-        return <Cost />;
+        return <Cost form={form} />;
+      case 7:
+        return <Submit form={form} />;
       default:
         return null;
     }
@@ -88,4 +116,13 @@ const NbCreateProgram = () => {
   );
 };
 
-export default NbCreateProgram;
+export default Form.create({
+  name: "base",
+  onFieldsChange: (props, changedValues, allValues) => {
+    console.log(changedValues);
+    // const { onChange } = props;
+    // const dispatch = useDispatch();
+    // dispatch(setProgram(allValues));
+    // onChange(allValues);
+  }
+})(NbCreateProgram);

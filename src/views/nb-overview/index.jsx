@@ -7,6 +7,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import AddIcon from "@material-ui/icons/Add";
+import { Link } from "react-router-dom";
 
 import Finance from "./component/finance";
 import Percentage from "./component/percentage";
@@ -71,15 +72,17 @@ const NbOverview = () => {
           </Typography>
         </li>
         <li>
-          <Fab
-            color="primary"
-            variant="extended"
-            aria-label="delete"
-            className={classes.fab}
-          >
-            Extended
-            <AddIcon className={style.add_icon} />
-          </Fab>
+          <Link to="/nb-home/create">
+            <Fab
+              color="primary"
+              variant="extended"
+              aria-label="delete"
+              className={classes.fab}
+            >
+              Extended
+              <AddIcon className={style.add_icon} />
+            </Fab>
+          </Link>
         </li>
       </ul>
       <Grid container>

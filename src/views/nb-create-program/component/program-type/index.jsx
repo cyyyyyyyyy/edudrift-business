@@ -1,5 +1,5 @@
 import React from "react";
-import { Radio, Button } from "antd";
+import { Radio, Button, Form, Input } from "antd";
 
 import style from "./index.module.scss";
 
@@ -31,7 +31,9 @@ const data = [
   }
 ];
 
-const ProgramType = () => {
+const ProgramType = props => {
+  const { getFieldDecorator } = props.form;
+
   const renderRadio = () => {
     const arr = [];
     data.forEach(item => {
@@ -47,10 +49,13 @@ const ProgramType = () => {
 
   return (
     <div>
-      <Radio.Group>{renderRadio()}</Radio.Group>
-      <footer className={style.footer}>
-        <Button type={"primary"}>next</Button>
-      </footer>
+      {getFieldDecorator("project_type", {
+        rules: [{ required: true, message: "Please input your username!" }]
+      })(<Radio.Group>{renderRadio()}</Radio.Group>)}
+
+      <div style={{ paddingTop: 30 }}>
+        <Button type="primary">NEXT STEP</Button>
+      </div>
     </div>
   );
 };

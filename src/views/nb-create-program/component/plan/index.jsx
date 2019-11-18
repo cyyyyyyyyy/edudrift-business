@@ -10,7 +10,6 @@ import {
   Col,
   Button
 } from "antd";
-import moment from "moment";
 
 const { Title, Text } = Typography;
 const { TextArea } = Input;
@@ -129,11 +128,11 @@ const Plan = props => {
           {dayEventList(dayEvent)}
         </div>
       ) : null}
-      <div>
+      <div style={{ paddingTop: 30 }}>
         <Button type="primary">NEXT STEP</Button>
       </div>
     </Form>
   );
 };
 
-export default Form.create({ name: "plan" })(Plan);
+export default Plan;

@@ -2,29 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="783c92a0-a3b3-4211-9ca5-2e8697146b01" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/routes/nb-home-route.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/nb-create-program/base-info.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/base-info/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/base-info/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/cost/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/plan/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/program-type/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/program-type/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/requirement/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/show/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/stay/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/nb-create-program/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/nb-create-program/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/nb-home/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/nb-home/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/nb-program/create.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/program.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/submit/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/home-route.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/nb-main-route.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/basic/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/basic/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/home/component/nav/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home/component/nav/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/home/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/home/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home/index.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/component/base-info/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/base-info/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/component/cost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/cost/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/component/plan/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/plan/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/component/program-type/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/program-type/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/component/requirement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/requirement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/component/show/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/show/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/component/stay/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/component/stay/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/nb-create-program/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-create-program/index.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/nb-overview/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-overview/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/nb-overview/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-overview/index.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,12 +34,36 @@
     <favorites_list name="edudrift-ui" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/requirement/index.jsx">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="654">
-              <caret line="129" column="36" selection-start-line="129" selection-start-column="36" selection-end-line="129" selection-end-column="36" />
+            <state relative-caret-position="308">
+              <caret line="91" column="12" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/nb-home/index.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/stay/index.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="35" lean-forward="true" selection-start-line="4" selection-end-line="5" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -53,10 +72,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/base-info/index.jsx">
+        <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/submit/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="144" lean-forward="true" selection-start-line="144" selection-end-line="159" selection-end-column="14" />
+            <state relative-caret-position="255">
+              <caret line="15" column="53" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/views/nb-overview/index.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="539">
+              <caret line="86" selection-start-line="86" selection-end-line="86" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -65,12 +96,45 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/program-type/index.jsx">
+        <entry file="file://$PROJECT_DIR$/src/views/nb-overview/index.module.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="49" column="12" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="12" />
+            <state relative-caret-position="85">
+              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/requirement/index.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="161" column="1" selection-start-line="161" selection-start-column="1" selection-end-line="174" selection-end-column="12" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/cost/index.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="50" column="19" lean-forward="true" selection-start-line="50" selection-start-column="19" selection-end-line="54" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/show/index.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="750">
+              <caret line="142" column="57" lean-forward="true" selection-start-line="142" selection-start-column="57" selection-end-line="142" selection-end-column="57" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -87,17 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>details_airport</find>
-      <find>details_station</find>
-      <find>details_instructions</find>
-      <find>Program Contact Information</find>
-      <find>details_website</find>
-      <find>details_official</find>
-      <find>details_primary</find>
-      <find>details_secondary</find>
-      <find>interestData</find>
-      <find>details_school_interest</find>
-      <find>overview_fullName</find>
       <find>overview_university</find>
       <find>overview_department</find>
       <find>renderInterestCheckbox</find>
@@ -114,9 +167,20 @@
       <find>card</find>
       <find>Grid</find>
       <find>NotificationsIcon</find>
+      <find>_slicedToArray</find>
+      <find>project_name</find>
+      <find>project_type</find>
+      <find>programData</find>
       <find>dayEvent</find>
       <find>dayEventList</find>
+      <find>moreInfo</find>
+      <find>div</find>
+      <find>renderMore</find>
+      <find>data</find>
+      <find>paddingTop</find>
+      <find>renderRadio</find>
       <find>renderCheck</find>
+      <find>showKeys</find>
     </findStrings>
     <replaceStrings>
       <replace>value</replace>
@@ -141,6 +205,7 @@
       <replace>overview_institution_name</replace>
       <replace>overview_department_name</replace>
       <replace>const</replace>
+      <replace>marginTop</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/routes</dir>
@@ -153,9 +218,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/views/bp-accommodation/index.module.scss" />
-        <option value="$PROJECT_DIR$/src/views/bp-eligibility/school-eligibility.jsx" />
-        <option value="$PROJECT_DIR$/src/views/bp-accommodation/accommodation.jsx" />
         <option value="$PROJECT_DIR$/src/views/bp-details/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/bp-basic/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/bp-schedule/index.jsx" />
@@ -164,7 +226,6 @@
         <option value="$PROJECT_DIR$/src/views/bp-overview/index.jsx" />
         <option value="$PROJECT_DIR$/.prettierrc" />
         <option value="$PROJECT_DIR$/src/views/bp-details/school-details.jsx" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/store/index.js" />
         <option value="$PROJECT_DIR$/src/components/EdButton/EdButton.jsx" />
         <option value="$PROJECT_DIR$/src/App.js" />
@@ -180,9 +241,6 @@
         <option value="$PROJECT_DIR$/src/style/main.scss" />
         <option value="$PROJECT_DIR$/src/views/nb-program/index.module.scss" />
         <option value="$PROJECT_DIR$/src/views/nb-program/index.jsx" />
-        <option value="$PROJECT_DIR$/src/views/nb-overview/index.module.scss" />
-        <option value="$PROJECT_DIR$/src/views/nb-overview/index.jsx" />
-        <option value="$PROJECT_DIR$/src/views/home/component/nav/index.jsx" />
         <option value="$PROJECT_DIR$/src/routes/home-route.jsx" />
         <option value="$PROJECT_DIR$/src/routes/client-main-route.jsx" />
         <option value="$PROJECT_DIR$/src/views/home/index.jsx" />
@@ -195,15 +253,22 @@
         <option value="$PROJECT_DIR$/src/views/nb-create-program/program-type.jsx" />
         <option value="$PROJECT_DIR$/src/views/nb-create-program/component/programe-type/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/nb-create-program/component/program-type/index.module.scss" />
+        <option value="$PROJECT_DIR$/src/store/reducers.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/views/home/component/nav/index.jsx" />
+        <option value="$PROJECT_DIR$/src/store/program.js" />
         <option value="$PROJECT_DIR$/src/views/nb-create-program/component/program-type/index.jsx" />
+        <option value="$PROJECT_DIR$/src/views/nb-create-program/component/base-info/index.jsx" />
+        <option value="$PROJECT_DIR$/src/views/nb-create-program/component/requirement/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/nb-create-program/index.module.scss" />
-        <option value="$PROJECT_DIR$/src/views/nb-create-program/component/show/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/nb-create-program/component/plan/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/nb-create-program/component/stay/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/nb-create-program/component/cost/index.jsx" />
+        <option value="$PROJECT_DIR$/src/views/nb-create-program/component/show/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/nb-create-program/index.jsx" />
-        <option value="$PROJECT_DIR$/src/views/nb-create-program/component/base-info/index.jsx" />
-        <option value="$PROJECT_DIR$/src/views/nb-create-program/component/requirement/index.jsx" />
+        <option value="$PROJECT_DIR$/src/views/nb-create-program/component/submit/index.jsx" />
+        <option value="$PROJECT_DIR$/src/views/nb-overview/index.module.scss" />
+        <option value="$PROJECT_DIR$/src/views/nb-overview/index.jsx" />
       </list>
     </option>
   </component>
@@ -224,81 +289,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="nb-create-program" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="nb-create-program" type="462c0819:PsiDirectoryNode" />
-              <item name="component" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="nb-create-program" type="462c0819:PsiDirectoryNode" />
-              <item name="component" type="462c0819:PsiDirectoryNode" />
-              <item name="base-info" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="nb-create-program" type="462c0819:PsiDirectoryNode" />
-              <item name="component" type="462c0819:PsiDirectoryNode" />
-              <item name="program-type" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="nb-home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="nb-overview" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -336,6 +326,48 @@
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="bp-schedule" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="nb-overview" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -460,18 +492,20 @@
       <workItem from="1571622052430" duration="10731000" />
       <workItem from="1572836082252" duration="1907000" />
       <workItem from="1572848450863" duration="12921000" />
-      <workItem from="1573649931515" duration="8361000" />
+      <workItem from="1573649931515" duration="8502000" />
+      <workItem from="1573782085560" duration="12127000" />
+      <workItem from="1574061821296" duration="8363000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="371483000" />
+    <option name="totallyTimeSpent" value="392114000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49873737" visible="true" weight="0.2651622" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49873737" visible="true" weight="0.2651622" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.5012626" side_tool="true" weight="0.33593196" />
@@ -495,6 +529,11 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/node_modules/aws-sdk/scripts/services-table-generator.js" />
+      </list>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -517,67 +556,6 @@
     <find-history />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/EdButton/EdButton.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@antv/g2/lib/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/axios/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-96" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/nb-overview/component/sale-total/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/nb-overview/component/percentage/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-86">
-          <caret selection-end-line="1" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/nb-overview/component/finance/index.module.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/nb-overview/component/finance/chart.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="72" column="20" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/nb-overview/component/finance/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -681,13 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/nb-overview/index.module.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/nb-program/create.jsx">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -725,47 +696,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/nb-overview/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2312">
-          <caret line="136" column="26" selection-start-line="136" selection-start-column="26" selection-end-line="136" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/bp-route.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
           <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/home/component/nav/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/home/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -813,23 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/nb-home/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/index.module.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/nb-main-route.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -840,43 +757,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/show/index.jsx">
+    <entry file="file://$PROJECT_DIR$/src/store/accounts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
+        <state relative-caret-position="272">
+          <caret line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/reducers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/plan/index.jsx">
+    <entry file="file://$PROJECT_DIR$/node_modules/react-redux/es/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="133" column="12" selection-start-line="133" selection-start-column="12" selection-end-line="133" selection-end-column="12" />
+        <state relative-caret-position="187">
+          <caret line="11" column="115" selection-start-line="11" selection-start-column="104" selection-end-line="11" selection-end-column="115" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/cost/index.jsx">
+    <entry file="file://$PROJECT_DIR$/src/views/home/component/nav/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="71" column="12" lean-forward="true" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
+        <state relative-caret-position="435">
+          <caret line="89" column="29" selection-start-line="89" selection-end-line="90" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/stay/index.jsx">
+    <entry file="file://$PROJECT_DIR$/src/store/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="76" column="49" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
+        <state>
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#53#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1213">
+          <caret line="79" column="28" selection-start-line="79" selection-start-column="28" selection-end-line="79" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/program.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/home/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/program-type/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="607">
+          <caret line="62" column="26" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -887,42 +851,116 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/index.jsx">
+    <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/index.module.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="47" column="42" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/program-type/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="49" column="12" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/base-info/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="144" lean-forward="true" selection-start-line="144" selection-end-line="159" selection-end-column="14" />
+        <state relative-caret-position="387">
+          <caret line="161" column="6" lean-forward="true" selection-start-line="161" selection-start-column="6" selection-end-line="167" selection-end-column="22" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/plan/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-162">
+          <caret line="90" column="29" selection-start-line="90" selection-start-column="29" selection-end-line="90" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/requirement/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="654">
-          <caret line="129" column="36" selection-start-line="129" selection-start-column="36" selection-end-line="129" selection-end-column="36" />
+        <state relative-caret-position="45">
+          <caret line="161" column="1" selection-start-line="161" selection-start-column="1" selection-end-line="174" selection-end-column="12" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/cost/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="50" column="19" lean-forward="true" selection-start-line="50" selection-start-column="19" selection-end-line="54" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/show/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="142" column="57" lean-forward="true" selection-start-line="142" selection-start-column="57" selection-end-line="142" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/stay/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="35" lean-forward="true" selection-start-line="4" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/submit/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="53" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="91" column="12" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/nb-home/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/nb-overview/index.module.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/nb-overview/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
