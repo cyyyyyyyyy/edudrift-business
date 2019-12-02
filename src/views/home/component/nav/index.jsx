@@ -9,8 +9,8 @@ import InboxIcon from "@material-ui/icons/Inbox";
 import logo from "static/images/logo.png";
 
 const navData = [
-  { label: "home", value: "home", path: "/nb-home" },
-  { label: "program", value: "program", path: "/nb-program" },
+  { label: "overview", value: "overview", path: "/home/overview" },
+  { label: "program", value: "program", path: "/home/program" },
   { label: "finance", value: "finance" },
   { label: "analytics", value: "analytics" },
   { label: "promotion", value: "promotion" },

@@ -28,7 +28,7 @@
   background: rgba(239, 241, 244, 1);
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 18px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
 }
@@ -43,4 +43,10 @@
 
 .name {
   padding: 0 20px 0 14px;
+}
+
+.breadcrumb {
+  padding: 6px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }

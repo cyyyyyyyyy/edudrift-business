@@ -47,12 +47,12 @@ const NbIndex = props => {
         <Form.Item>
           {getFieldDecorator("email", {
             rules: [{ required: true, message: "Please input your username!" }]
-          })(<Input placeholder="email" />)}
+          })(<Input placeholder="Email" />)}
         </Form.Item>
         <Form.Item>
           {getFieldDecorator("password", {
             rules: [{ required: true, message: "Please input your username!" }]
-          })(<Input placeholder="password" type="password" />)}
+          })(<Input placeholder="Password" type="password" />)}
         </Form.Item>
         <p className={style.modal_link}>Forgot you password ?</p>
         <Button type="primary" className={style.modal_btn}>
@@ -71,14 +71,24 @@ const NbIndex = props => {
       <div>
         <h5 className={style.modal_title}>CREATE ACCOUNT</h5>
         <Form.Item>
+          {getFieldDecorator("first_name", {
+            rules: [{ required: true, message: "Please input your username!" }]
+          })(<Input placeholder="First Name" />)}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator("last_name", {
+            rules: [{ required: true, message: "Please input your username!" }]
+          })(<Input placeholder="Last name" />)}
+        </Form.Item>
+        <Form.Item>
           {getFieldDecorator("email", {
             rules: [{ required: true, message: "Please input your username!" }]
-          })(<Input placeholder="email" />)}
+          })(<Input placeholder="Email" />)}
         </Form.Item>
         <Form.Item>
           {getFieldDecorator("password", {
             rules: [{ required: true, message: "Please input your username!" }]
-          })(<Input placeholder="password" />)}
+          })(<Input placeholder="Password" />)}
         </Form.Item>
         <Button
           type="primary"

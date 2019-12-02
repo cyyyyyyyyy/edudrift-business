@@ -1,10 +1,22 @@
 import React from "react";
-import { Form } from "antd";
+import { Button, Form, Typography } from "antd";
 
-const BaseInfo = props => {
+const { Title, Text } = Typography;
+
+const Submit = props => {
   const { getFieldDecorator } = props.form;
 
-  return <Form>123</Form>;
+  return (
+    <Form>
+      <Title level={3}>补充资料完成!</Title>
+      <Text type="secondary">
+        You’ve successful completed all the required information!
+      </Text>
+      <div>
+        <Button type="primary">提交</Button>
+      </div>
+    </Form>
+  );
 };
 
-export default BaseInfo;
+export default Submit;

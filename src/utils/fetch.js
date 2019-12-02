@@ -5,7 +5,7 @@ const fetch = function({ url, method, params, headers, baseURL, signIn }) {
   let options = {
     method: method,
     url: url,
-    baseURL: "/"
+    baseURL: "http://47.98.231.231:8888/"
   };
 
   if (method === "get") {
