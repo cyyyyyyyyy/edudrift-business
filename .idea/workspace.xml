@@ -3,21 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="783c92a0-a3b3-4211-9ca5-2e8697146b01" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/precache-manifest.f3a82a49edb064acc669375ab0fbf8f8.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/precache-manifest.f3a82a49edb064acc669375ab0fbf8f8.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/nb-home-route.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/nb-home-route.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/fetch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/fetch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/home/component/nav/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home/component/nav/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/home/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/home/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-index/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-index/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-overview/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-overview/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-userInfo/component/base-info/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-userInfo/component/base-info/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-userInfo/component/contact/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-userInfo/component/contact/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-userInfo/component/submit/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-userInfo/component/submit/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-userInfo/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-userInfo/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nb-userInfo/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/nb-userInfo/index.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/precache-manifest.85a062ca5c5638ff5bb936590f7d542c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/service-worker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/css/2.ce41ca98.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/css/2.ce41ca98.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/css/main.734b9654.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/css/main.734b9654.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.02959b51.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.02959b51.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/App.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,37 +31,39 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/stay/index.jsx">
+        <entry file="file://$PROJECT_DIR$/styleguide.config.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="4" column="35" selection-start-line="4" selection-end-line="5" />
+            <state relative-caret-position="170">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
-                <element signature="e#0#40#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/submit/index.jsx">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="53" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
+            <state relative-caret-position="187">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
               <folding>
-                <element signature="e#0#40#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/views/home/index.jsx">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/style/App.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="136">
+              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -80,7 +79,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>overview_university</find>
       <find>overview_department</find>
       <find>renderInterestCheckbox</find>
       <find>InboxIcon</find>
@@ -110,6 +108,7 @@
       <find>renderRadio</find>
       <find>renderCheck</find>
       <find>showKeys</find>
+      <find>routes/nb-main-route</find>
     </findStrings>
     <replaceStrings>
       <replace>value</replace>
@@ -139,6 +138,7 @@
     <dirStrings>
       <dir>$PROJECT_DIR$/src/routes</dir>
       <dir>$PROJECT_DIR$/src/</dir>
+      <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -147,8 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/views/bp-details/index.jsx" />
-        <option value="$PROJECT_DIR$/src/views/bp-basic/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/bp-schedule/index.jsx" />
         <option value="$PROJECT_DIR$/src/routes/bp-route.jsx" />
         <option value="$PROJECT_DIR$/src/views/bp-schedule/school-schedule.jsx" />
@@ -157,7 +155,6 @@
         <option value="$PROJECT_DIR$/src/views/bp-details/school-details.jsx" />
         <option value="$PROJECT_DIR$/src/store/index.js" />
         <option value="$PROJECT_DIR$/src/components/EdButton/EdButton.jsx" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/views/home/component/percentage/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/home/component/sale-total/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/home/component/finance/chat.jsx" />
@@ -198,6 +195,9 @@
         <option value="$PROJECT_DIR$/src/views/nb-create-program/component/submit/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/nb-overview/index.module.scss" />
         <option value="$PROJECT_DIR$/src/views/nb-overview/index.jsx" />
+        <option value="$PROJECT_DIR$/build/static/css/2.ce41ca98.chunk.css" />
+        <option value="$PROJECT_DIR$/src/style/main.css" />
+        <option value="$PROJECT_DIR$/src/App.js" />
       </list>
     </option>
   </component>
@@ -207,7 +207,7 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="y" value="22" />
     <option name="width" value="1440" />
     <option name="height" value="810" />
@@ -270,20 +270,23 @@
             <path>
               <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
               <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
               <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="edudrift-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edudrift-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -314,22 +317,22 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/views/user-accounts-add.jsx" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/views/nb-create-program/component" />
-      <recent name="$PROJECT_DIR$/src/views/nb-create-program/component/show" />
-      <recent name="$PROJECT_DIR$/src/views/nb-create-program/component/base-info" />
-      <recent name="$PROJECT_DIR$/src/views/nb-create-program/component/program-type" />
-      <recent name="$PROJECT_DIR$/src/views/nb-home" />
-    </key>
-    <key name="es6.move.members.recent.items">
-      <recent name="$PROJECT_DIR$/src/views/render-from.js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/views/nb-create-program/component/programe-type" />
       <recent name="$PROJECT_DIR$/src/views/nb-create-program" />
       <recent name="$PROJECT_DIR$/src/views/nb-overview/component" />
       <recent name="$PROJECT_DIR$/src/views/bp-overview" />
       <recent name="$PROJECT_DIR$/src/views/my-profile" />
+    </key>
+    <key name="es6.move.members.recent.items">
+      <recent name="$PROJECT_DIR$/src/views/render-from.js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/views/nb-create-program/component" />
+      <recent name="$PROJECT_DIR$/src/views/nb-create-program/component/show" />
+      <recent name="$PROJECT_DIR$/src/views/nb-create-program/component/base-info" />
+      <recent name="$PROJECT_DIR$/src/views/nb-create-program/component/program-type" />
+      <recent name="$PROJECT_DIR$/src/views/nb-home" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -411,15 +414,16 @@
       <workItem from="1573649931515" duration="8502000" />
       <workItem from="1573782085560" duration="12127000" />
       <workItem from="1574061821296" duration="8870000" />
-      <workItem from="1575274786049" duration="224000" />
+      <workItem from="1575274786049" duration="1172000" />
+      <workItem from="1575276368532" duration="84000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="392845000" />
+    <option name="totallyTimeSpent" value="393877000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="810" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49873737" visible="true" weight="0.2651622" />
@@ -436,7 +440,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32919255" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50070524" side_tool="true" weight="0.32919255" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4992948" weight="0.33333334" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4992948" weight="0.33240223" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32923833" />
       <window_info anchor="bottom" id="Thumbnails" order="12" weight="0.32919255" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -473,52 +477,6 @@
     <find-history />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/icons/Add.d.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/bp-details/index.jsx" />
-    <entry file="file://$PROJECT_DIR$/node_modules/react-router/es/withRouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/basic/index.jsx" />
-    <entry file="file://$PROJECT_DIR$/src/components/EdInput/EdInput.jsx" />
-    <entry file="file://$PROJECT_DIR$/src/components/EdInput/Readme.md" />
-    <entry file="file://$PROJECT_DIR$/src/components/EdInput/index.jsx" />
-    <entry file="file://$PROJECT_DIR$/config/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7731" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/webpackDevServer.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1114" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/style/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/nb-program/index.module.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/Typography/Typography.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
@@ -553,13 +511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.prettierrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -625,13 +576,6 @@
           <folding>
             <element signature="e#0#53#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1213">
-          <caret line="79" column="28" selection-start-line="79" selection-start-column="28" selection-end-line="79" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -780,20 +724,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/submit/index.jsx">
+    <entry file="file://$PROJECT_DIR$/src/views/home/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="53" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
+        <state relative-caret-position="175">
+          <caret line="38" column="6" lean-forward="true" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/home/index.jsx">
+    <entry file="file://$PROJECT_DIR$/yarn.lock">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jsconfig.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.prettierrc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="51">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/nb-create-program/component/submit/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="40" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rollup.config.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/webpackDevServer.config.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/static/css/2.ce41ca98.chunk.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="7" column="13795" selection-start-line="7" selection-start-column="13795" selection-end-line="7" selection-end-column="13795" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="79" column="28" selection-start-line="79" selection-start-column="28" selection-end-line="79" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/env.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/static/css/main.734b9654.chunk.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/style/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styleguide.config.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

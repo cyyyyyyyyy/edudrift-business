@@ -7,7 +7,7 @@ import store from "./store";
 
 import "./i18n.js";
 
-import "./style/main.scss";
+import "./style/App.css";
 
 const outerTheme = createMuiTheme({
   palette: {
