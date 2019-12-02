@@ -156,7 +156,7 @@
             "C:\\Users\\cy\\Documents\\edudrift-ui\\node_modules\\jest-watch-typeahead\\testname.js"
         ]
     },
-    "homepage": ".",
+    "homepage": "http://47.98.231.231:8080/",
     "babel": {
         "presets": [
             "react-app"
