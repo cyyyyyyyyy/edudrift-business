@@ -72,7 +72,7 @@ const NbOverview = () => {
           </Typography>
         </li>
         <li>
-          <Link to="/nb-home/create">
+          <Link to="/home/create">
             <Fab
               color="primary"
               variant="extended"
