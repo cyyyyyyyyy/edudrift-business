@@ -1,5 +1,0 @@
-Index Table:
-
-```jsx
-<EdTable />
-```
