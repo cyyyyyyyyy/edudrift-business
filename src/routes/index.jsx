@@ -7,8 +7,8 @@ import NbIndex from "views/nb-index";
 const Routes = () => (
   <Router>
     <Switch>
-      <Route path="/business/home" component={Home} />
-      <Route path="/business" component={NbIndex} />
+      <Route path="/home" component={Home} />
+      <Route path="/" component={NbIndex} />
     </Switch>
   </Router>
 );
