@@ -8,10 +8,10 @@ import NbUserInfo from "../views/nb-userInfo";
 
 const HomeRoute = () => (
   <Switch>
-    <Route path="/home/create" component={NbCreateProgram} />
-    <Route path="/home/user-info" component={NbUserInfo} />
-    <Route path="/home/program" component={NbProgram} />
-    <Route path="/home/overview" component={NbOverview} />
+    <Route path="/business/home/create" component={NbCreateProgram} />
+    <Route path="/business/home/user-info" component={NbUserInfo} />
+    <Route path="/business/home/program" component={NbProgram} />
+    <Route path="/business/home/overview" component={NbOverview} />
   </Switch>
 );
 
