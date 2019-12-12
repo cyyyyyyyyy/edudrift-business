@@ -19,35 +19,35 @@ const { Step } = Steps;
 
 const steps = [
   {
-    title: "项目类型",
+    title: "Program Type",
     content: "First-content"
   },
   {
-    title: "基本信息",
+    title: "Basic Program Information",
     content: "Second-content"
   },
   {
-    title: "项目计划",
+    title: "Schedule",
     content: "Last-content"
   },
   {
-    title: "项目展示",
+    title: "Program Highlights",
     content: "Last-content"
   },
   {
-    title: "资格要求",
+    title: "Eligibility",
     content: "Last-content"
   },
   {
-    title: "住宿",
+    title: "Accommodation",
     content: "Last-content"
   },
   {
-    title: "费用",
+    title: "Pricing",
     content: "Last-content"
   },
   {
-    title: "提交",
+    title: "Submit Listing",
     content: "Last-content"
   }
 ];
@@ -73,24 +73,29 @@ const NbCreateProgram = props => {
     dispatch(setProgram({ ...programData, ...value }));
   };
 
+  const typeProps = {
+    setCurrent,
+    form
+  };
+
   const renderType = () => {
     switch (current) {
       case 0:
-        return <ProgramType form={form} />;
+        return <ProgramType {...typeProps} />;
       case 1:
-        return <BaseInfo form={form} />;
+        return <BaseInfo {...typeProps} />;
       case 2:
-        return <Plan form={form} />;
+        return <Plan {...typeProps} />;
       case 3:
-        return <Show form={form} />;
+        return <Show {...typeProps} />;
       case 4:
-        return <Requirement form={form} />;
+        return <Requirement {...typeProps} />;
       case 5:
-        return <Stay form={form} />;
+        return <Stay {...typeProps} />;
       case 6:
-        return <Cost form={form} />;
+        return <Cost {...typeProps} />;
       case 7:
-        return <Submit form={form} />;
+        return <Submit {...typeProps} />;
       default:
         return null;
     }
@@ -102,7 +107,7 @@ const NbCreateProgram = props => {
         <Steps
           size="small"
           current={current}
-          style={{ width: 800, marginLeft: -22, padding: "15px 0 30px 0" }}
+          style={{ width: 900, marginLeft: -22, padding: "15px 0 30px 0" }}
           labelPlacement="vertical"
           onChange={data => setCurrent(data)}
         >

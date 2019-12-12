@@ -5,26 +5,26 @@ import style from "./index.module.scss";
 
 const data = [
   {
-    label: "夏/冬令营",
+    label: "Summer/Winter School Program",
     value: "1",
     content:
       "Official accredited/non-accredited university programs conducted in the summer or winter school breaks. These programs usually last between 3-12 weeks with a variety of courses \n" +
       "for students to choose from."
   },
   {
-    label: "短期游学参观",
+    label: "Short Study Tour",
     value: "2",
     content:
       "Reputable programs conducted in collaboration with institutions and/or universities. These programs are usually theme-based, and also provide a cultural-immersion experience for visiting students. Length of programs vary from 3 days to 2 weeks."
   },
   {
-    label: "海外实习",
+    label: "Overseas Internship",
     value: "3",
     content:
       "Arranged internships in various countries done in partnership with start-ups, SMEs, NGOs, and other partnering organisations. These program may involve participants receiving an internship allowance/stipend. Length of programs vary from 3 weeks to 6 months."
   },
   {
-    label: "竞赛",
+    label: "Competition",
     value: "4",
     content:
       "Tournaments, competitions and other international events for both international and local student participants. These programs include, but not limited to, debate competitions, mooting competitions, robotics, public speaking, tech exhibitions, etc."
@@ -32,6 +32,7 @@ const data = [
 ];
 
 const ProgramType = props => {
+  const { setCurrent } = props;
   const { getFieldDecorator } = props.form;
 
   const renderRadio = () => {
@@ -50,11 +51,14 @@ const ProgramType = props => {
   return (
     <div>
       {getFieldDecorator("project_type", {
+        initialValue: "1",
         rules: [{ required: true, message: "Please input your username!" }]
       })(<Radio.Group>{renderRadio()}</Radio.Group>)}
 
       <div style={{ paddingTop: 30 }}>
-        <Button type="primary">NEXT STEP</Button>
+        <Button type="primary" onClick={() => setCurrent(1)}>
+          NEXT STEP
+        </Button>
       </div>
     </div>
   );
