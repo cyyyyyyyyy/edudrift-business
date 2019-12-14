@@ -54,20 +54,11 @@ const steps = [
 
 const NbCreateProgram = props => {
   const { form } = props;
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState(5);
   const programData = useSelector(state => state.program);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(
-      setProgram({
-        project_type: Form.createFormField({
-          name: "project_type",
-          value: "1"
-        })
-      })
-    );
-  }, []);
+  useEffect(() => {}, []);
 
   const onChange = value => {
     dispatch(setProgram({ ...programData, ...value }));
@@ -122,12 +113,5 @@ const NbCreateProgram = props => {
 };
 
 export default Form.create({
-  name: "base",
-  onFieldsChange: (props, changedValues, allValues) => {
-    console.log(changedValues);
-    // const { onChange } = props;
-    // const dispatch = useDispatch();
-    // dispatch(setProgram(allValues));
-    // onChange(allValues);
-  }
+  name: "base"
 })(NbCreateProgram);

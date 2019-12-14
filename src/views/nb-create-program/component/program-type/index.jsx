@@ -1,5 +1,8 @@
 import React from "react";
 import { Radio, Button, Form, Input } from "antd";
+import { useSelector, useDispatch } from "react-redux";
+
+import { setProgram } from "../../../../store/program";
 
 import style from "./index.module.scss";
 
@@ -33,13 +36,31 @@ const data = [
 
 const ProgramType = props => {
   const { setCurrent } = props;
-  const { getFieldDecorator } = props.form;
+  const { getFieldDecorator, validateFields, getFieldsValue } = props.form;
+  const stepData = useSelector(state => state.program.step0);
+  const { program_type = "1" } = stepData;
+  const dispatch = useDispatch();
+
+  const handleNext = () => {
+    validateFields(error => {
+      if (!error) {
+        const formValue = getFieldsValue();
+        setCurrent(1);
+        dispatch(
+          setProgram({
+            type: "step0",
+            data: formValue
+          })
+        );
+      }
+    });
+  };
 
   const renderRadio = () => {
     const arr = [];
     data.forEach(item => {
       arr.push(
-        <div className={style.radio}>
+        <div className={style.radio} key={item.value}>
           <Radio value={item.value}>{item.label}</Radio>
           <div className={style.radio_content}>{item.content}</div>
         </div>
@@ -50,13 +71,13 @@ const ProgramType = props => {
 
   return (
     <div>
-      {getFieldDecorator("project_type", {
-        initialValue: "1",
-        rules: [{ required: true, message: "Please input your username!" }]
+      {getFieldDecorator("program_type", {
+        initialValue: program_type,
+        rules: [{ required: true, message: "Please select!" }]
       })(<Radio.Group>{renderRadio()}</Radio.Group>)}
 
       <div style={{ paddingTop: 30 }}>
-        <Button type="primary" onClick={() => setCurrent(1)}>
+        <Button type="primary" onClick={handleNext}>
           NEXT STEP
         </Button>
       </div>
@@ -64,4 +85,4 @@ const ProgramType = props => {
   );
 };
 
-export default ProgramType;
+export default Form.create()(ProgramType);

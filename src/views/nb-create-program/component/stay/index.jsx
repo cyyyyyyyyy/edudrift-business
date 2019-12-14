@@ -6,11 +6,11 @@ const { Title, Text } = Typography;
 
 const liveList = [
   {
-    label: "是的，住宿包含在项目套餐中。",
+    label: "Yes, accommodation is included in the registration packages.",
     value: "1"
   },
   {
-    label: "不，套餐中不提供住宿服务。",
+    label: "No, accommodation is not provided at the program.",
     value: "2"
   }
 ];
@@ -85,13 +85,15 @@ const Stay = props => {
 
   return (
     <Form>
-      <Title level={3}>住宿</Title>
+      <Title level={3}>Accommodation</Title>
       <Text type="secondary">
         Participants traveling abroad for overseas program are most concerned
         about the accommodation arrangements. Do input the information for the
         length of their stay in the program.
       </Text>
-      <Title level={4}>一 您是否在项目中计划提供住宿?</Title>
+      <Title level={4}>
+        Is Accommodation Included in the Registration Packages?
+      </Title>
       <Text type="secondary">
         Select up to 3 most relevant profile that best fits the program. Note
         that if you select multiple groups, there is a very high likelyhood that
@@ -99,25 +101,31 @@ const Stay = props => {
         in the same program.
       </Text>
       <div>
-        {getFieldDecorator("has_live", {
-          rules: [{ required: true, message: "Please input your username!" }]
-        })(
-          <Radio.Group style={{ width: "100% " }}>
-            {renderOutlineRadio(liveList)}
-          </Radio.Group>
-        )}
+        <Form.Item>
+          {getFieldDecorator("need_accommodation", {
+            rules: [{ required: true, message: "Please select!" }]
+          })(
+            <Radio.Group style={{ width: "100% " }}>
+              {renderOutlineRadio(liveList)}
+            </Radio.Group>
+          )}
+        </Form.Item>
       </div>
-      <Title level={4}>二 住宿详情</Title>
+      <Title level={4}>Details of Accommodation</Title>
       <Text type="secondary">In English language</Text>
-      {getFieldDecorator("english_language", {
-        rules: [{ required: true, message: "Please input your username!" }]
-      })(<Input style={{ marginTop: 10 }} />)}
+      <Form.Item>
+        {getFieldDecorator("english_language", {
+          rules: [{ required: true, message: "Please input your username!" }]
+        })(<Input style={{ marginTop: 10 }} />)}
+      </Form.Item>
       <Text type="secondary" style={{ marginTop: 10 }}>
         In Local language
       </Text>
-      {getFieldDecorator("local_language", {
-        rules: [{ required: true, message: "Please input your username!" }]
-      })(<Input style={{ marginTop: 10 }} />)}
+      <Form.Item>
+        {getFieldDecorator("local_language", {
+          rules: [{ required: true, message: "Please input your username!" }]
+        })(<Input style={{ marginTop: 10 }} />)}
+      </Form.Item>
       <Title level={4}>Address of Accommodation</Title>
       <Text type="secondary">In English language</Text>
       <div style={{ width: 300 }}>
@@ -143,7 +151,7 @@ const Stay = props => {
           rules: [{ required: true, message: "Please input your username!" }]
         })(<Input style={{ marginTop: 10 }} />)}
       </div>
-      <Title level={4}>住宿星级</Title>
+      <Title level={4}>Accommodation Type</Title>
       <div>
         <Form.Item>
           {getFieldDecorator("star", {
@@ -151,7 +159,9 @@ const Stay = props => {
           })(<Radio.Group>{renderRadio(starList)}</Radio.Group>)}
         </Form.Item>
       </div>
-      <Title level={4}>是否提供机场接送服务？</Title>
+      <Title level={4}>
+        Will Airport Transfer on arrival and departure day be provided?
+      </Title>
       <div>
         <Form.Item>
           {getFieldDecorator("arrive", {
@@ -159,7 +169,7 @@ const Stay = props => {
           })(<Checkbox.Group>{renderCheck(arriveList)}</Checkbox.Group>)}
         </Form.Item>
       </div>
-      <Title level={4}>房型选择(多选)</Title>
+      <Title level={4}>Room Types Available</Title>
       <div>
         <Form.Item>
           {getFieldDecorator("roomType", {
@@ -167,7 +177,7 @@ const Stay = props => {
           })(<Radio.Group>{renderRadio(roomTypeList)}</Radio.Group>)}
         </Form.Item>
       </div>
-      <Title level={4}>上传图片</Title>
+      <Title level={4}>Upload Photos</Title>
       <Text type="secondary">
         Upload photos of the designated accommodation so as to give participants
         a better idea of where they will be staying at and what to expect in the

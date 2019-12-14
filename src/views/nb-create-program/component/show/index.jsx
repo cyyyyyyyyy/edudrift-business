@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Typography,
   Form,
@@ -10,40 +11,95 @@ import {
   Icon,
   Radio
 } from "antd";
+import { setProgram } from "../../../../store/program";
 
 const { Title, Text } = Typography;
 
 const { TextArea } = Input;
 
 const playList = [
-  { label: "与项目主办机构相同", value: "1" },
-  { label: "不，有其他组织负责", value: "2" }
+  {
+    label: "Visits to Local Attractions are not included in the program",
+    value: "1"
+  },
+  { label: "Organized by the Main Program Organizer", value: "2" },
+  { label: "Organized by another Organizing Partner", value: "3" }
 ];
 
 const Show = props => {
-  const { getFieldDecorator, getFieldValue, setFieldsValue } = props.form;
-  getFieldDecorator("projectKeys", { initialValue: [1, 2, 3] });
-  getFieldDecorator("projectImageKeys", {
-    initialValue: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  const { setCurrent } = props;
+  const {
+    getFieldDecorator,
+    getFieldValue,
+    setFieldsValue,
+    validateFields,
+    getFieldsValue
+  } = props.form;
+  const stepData1 = useSelector(state => state.program.step3);
+  const dispatch = useDispatch();
+
+
+  const {
+    program_highlight,
+    local_attractions_type,
+    program_organiser,
+    editions_photo_list,
+    organising_team_photo_list
+  } = stepData1;
+
+  getFieldDecorator("programKeys", {
+    initialValue: program_highlight
+      ? program_highlight.map((val, index) => index)
+      : [0, 1, 2]
   });
 
+  const handleNext = () => {
+    validateFields(error => {
+      if (!error) {
+        const formValue = getFieldsValue();
+        const programKeys = getFieldValue("programKeys");
+        const program_highlight = programKeys.map(
+          val => formValue[`program_highlight_${val}`]
+        );
+        console.log(program_highlight);
+        const { local_attractions_type, program_organiser } = formValue;
+        dispatch(
+          setProgram({
+            type: "step3",
+            data: {
+              program_highlight,
+              local_attractions_type,
+              program_organiser
+            }
+          })
+        );
+        setCurrent(4);
+      }
+    });
+  };
+
   const addMore = () => {
-    const keys = getFieldValue("projectKeys");
-    const nextKeys = keys.concat(keys.length++);
+    const keys = getFieldValue("programKeys");
+    const nextKeys = keys.concat(keys.length);
     setFieldsValue({
-      projectKeys: nextKeys
+      programKeys: nextKeys
     });
   };
 
   const renderShowList = () => {
-    const keys = getFieldValue("projectKeys");
+    const keys = getFieldValue("programKeys");
 
     const arr = [];
     if (keys) {
       keys.forEach((k, index) => {
         arr.push(
-          <li key={`project${index}`} style={{ paddingTop: 10 }}>
-            {getFieldDecorator(`project_show[${k}]`, {})(<Input />)}
+          <li key={`program${index}`}>
+            <Form.Item>
+              {getFieldDecorator(`program_highlight_${k}`, {
+                initialValue: program_highlight ? program_highlight[k] : "",
+                rules: [{ required: true, message: "Please input!" }]
+              })(<Input />)}
+            </Form.Item>
           </li>
         );
       });
@@ -64,38 +120,19 @@ const Show = props => {
   };
 
   const renderProjectImage = () => {
-    const keys = getFieldValue("projectImageKeys");
-
-    const arr = [];
-    if (keys) {
-      keys.forEach((k, index) => {
-        arr.push(
-          <li
-            style={{ float: "left", paddingRight: 12 }}
-            key={`projectImage${index}`}
-          >
-            {getFieldDecorator(`project_image[${k}]`, {})(
-              <Upload
-                name="avatar"
-                listType="picture-card"
-                showUploadList={true}
-              >
-                <div>
-                  <Icon type="plus" />
-                  <div className="ant-upload-text">Upload</div>
-                </div>
-              </Upload>
-            )}
-          </li>
-        );
-      });
-    }
-    return arr;
+    return (
+      <Upload name="avatar" listType="picture-card">
+        <>
+          <Icon type="plus" />
+          <span className="ant-upload-text">Upload</span>
+        </>
+      </Upload>
+    );
   };
 
   return (
     <Form>
-      <Title level={3}>项目展示</Title>
+      <Title level={3}>Program Highlight</Title>
       <Text type="secondary">
         Are the lectures discussion based? Are there guest lectures from
         esteemed speakers? How are courses evaluated? List the strengths and
@@ -103,34 +140,37 @@ const Show = props => {
       </Text>
       <ul style={{ width: 500, overflow: "hidden" }}>
         {renderShowList()}
-        <li>
-          <a onClick={addMore}>add</a>
+        <li style={{ fontSize: "16px" }}>
+          <a onClick={addMore}>
+            <Icon type="plus-circle" style={{ paddingRight: 4 }} />
+            more
+          </a>
         </li>
       </ul>
       <Text type="secondary">
         Upload photos of the previous editions of the course or other relevant
         photos (E.g. lecture session)
       </Text>
-      <ul style={{ overflow: "hidden", paddingTop: 20 }}>
+      <div style={{ overflow: "hidden", paddingTop: 20 }}>
         {renderProjectImage()}
-      </ul>
-      <Title level={4}>组织游玩(可选)</Title>
-      <Text type="secondary" style={{ marginTop: 14 }}>
+      </div>
+      <Title level={4}>Visiting Local Attractions</Title>
+      <Text type="secondary" style={{ margin: "8px 0" }}>
         Let us know a little more about the team behind the non-curriculum
         aspects of the program.
       </Text>
-      <div style={{ marginBottom: 14 }}>
-        {getFieldDecorator("cannel", {
-          rules: [{ required: true, message: "Please input your username!" }]
+      <Form.Item>
+        {getFieldDecorator("local_attractions_type", {
+          initialValue: local_attractions_type,
+          rules: [{ required: true, message: "Please select!" }]
         })(<Radio.Group>{renderRadio(playList)}</Radio.Group>)}
-      </div>
-      <Text type="secondary" s>
-        Introduction to the Program Organiser
-      </Text>
-      <div>
+      </Form.Item>
+      <Text type="secondary">Introduction to the Program Organiser</Text>
+      <div style={{ paddingTop: 8 }}>
         <Form.Item>
-          {getFieldDecorator("organiser", {
-            rules: [{ required: true, message: "Please input your username!" }]
+          {getFieldDecorator("program_organiser", {
+            initialValue: program_organiser,
+            rules: [{ required: true, message: "Please input!" }]
           })(
             <TextArea
               rows={6}
@@ -140,11 +180,16 @@ development of the participants taking part in it. [Max 1000 characters]"
           )}
         </Form.Item>
       </div>
-      <ul style={{ overflow: "hidden", paddingTop: 20 }}>
+      <Text type="secondary">
+        Upload photos of the organising team and/or photos of previous programs
+      </Text>
+      <div style={{ overflow: "hidden", paddingTop: 20 }}>
         {renderProjectImage()}
-      </ul>
+      </div>
       <div style={{ paddingTop: 30 }}>
-        <Button type="primary">NEXT STEP</Button>
+        <Button type="primary" onClick={handleNext}>
+          NEXT STEP
+        </Button>
       </div>
     </Form>
   );

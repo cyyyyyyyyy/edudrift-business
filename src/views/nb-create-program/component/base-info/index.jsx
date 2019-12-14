@@ -1,4 +1,6 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import moment from "moment";
 import {
   DatePicker,
   Checkbox,
@@ -11,9 +13,8 @@ import {
   Button
 } from "antd";
 
+import { setProgram } from "../../../../store/program";
 import { CITY, COUNTRY } from "../../../../constant/city";
-
-import style from "./index.module.scss";
 
 const { Title, Text } = Typography;
 const { TextArea } = Input;
@@ -79,16 +80,82 @@ const fieldOptions = [
 ];
 
 const list = [
-  { label: "minStudent", value: "Apple" },
-  { label: "最大学生", value: "Pear" },
-  { label: "最少教员", value: "Orange" },
-  { label: "最大教员", value: "Apple1" },
-  { label: "最少观摩", value: "Pear2" },
-  { label: "最大观摩", value: "Orange3" }
+  { label: "Minimum Amount of Students", value: "minimum_students" },
+  {
+    label: "Registration Cap for Students",
+    value: "registration_students"
+  },
+  {
+    label: "Minimum Amount of Teaching Staff",
+    value: "minimum_teaching_staff"
+  },
+  {
+    label: "Registration Cap for Teaching Staff",
+    value: "registration_teaching_staff"
+  },
+  {
+    label: "Minimum Amount of Observers",
+    value: "minimum_observers"
+  },
+  {
+    label: "Registration Cap for Observers",
+    value: "registration_observers"
+  }
 ];
 
 const BaseInfo = props => {
-  const { getFieldDecorator, getFieldValue } = props.form;
+  const { setCurrent } = props;
+  const {
+    getFieldDecorator,
+    getFieldValue,
+    validateFields,
+    getFieldsValue
+  } = props.form;
+  const stepData = useSelector(state => state.program.step1);
+  const {
+    program_name,
+    program_country,
+    program_site,
+    organizing_entity,
+    city,
+    program_describe,
+    fields_interest,
+    program_start_day,
+    deadline,
+    program_end_day,
+    type_participants,
+    minimum_students,
+    registration_students,
+    minimum_teaching_staff,
+    registration_teaching_staff,
+    minimum_observers,
+    registration_observers
+  } = stepData;
+
+  console.log(stepData);
+
+  const dispatch = useDispatch();
+
+  const handleNext = () => {
+    validateFields(error => {
+      if (!error) {
+        const formValue = getFieldsValue();
+        const { program_start_day, program_end_day, deadline } = formValue;
+        dispatch(
+          setProgram({
+            type: "step1",
+            data: {
+              ...formValue,
+              program_start_day: program_start_day.format("YYYY-MM-DD") || "",
+              program_end_day: program_end_day.format("YYYY-MM-DD") || "",
+              deadline: deadline.format("YYYY-MM-DD") || ""
+            }
+          })
+        );
+        setCurrent(2);
+      }
+    });
+  };
 
   const renderCheck = data => {
     const arr = [];
@@ -110,7 +177,8 @@ const BaseInfo = props => {
         <Col span={8} style={{ paddingRight: 40 }}>
           <Form.Item label={value.label}>
             {getFieldDecorator(value.value, {
-              rules: []
+              initialValue: stepData[value.value],
+              rules: [{ required: true, message: "Please input!" }]
             })(<Input />)}
           </Form.Item>
         </Col>
@@ -129,6 +197,8 @@ const BaseInfo = props => {
 
   const programCountry = getFieldValue("program_country");
   const selectCity = CITY[programCountry] || [];
+  const programStartDay = getFieldValue("program_start_day");
+  const programEndDay = getFieldValue("program_end_day");
   return (
     <Form>
       <Title level={3}>Basic Program Information</Title>
@@ -139,11 +209,13 @@ const BaseInfo = props => {
         <Col span={10} style={{ paddingRight: 40 }}>
           <Form.Item label="Name of the Program">
             {getFieldDecorator("program_name", {
+              initialValue: program_name,
               rules: [{ required: true, message: "Please input!" }]
             })(<Input placeholder="Name of the Program" />)}
           </Form.Item>
           <Form.Item label="Country/Region">
             {getFieldDecorator("program_country", {
+              initialValue: program_country,
               rules: [{ required: true, message: "Please input!" }]
             })(
               <Select placeholder="Country/Region">
@@ -153,6 +225,7 @@ const BaseInfo = props => {
           </Form.Item>
           <Form.Item label="Program Official Site">
             {getFieldDecorator("program_site", {
+              initialValue: program_site,
               rules: [{ required: true, message: "Please input!" }]
             })(<Input placeholder="Program Official Site" />)}
           </Form.Item>
@@ -160,26 +233,23 @@ const BaseInfo = props => {
         <Col span={10}>
           <Form.Item label="Name of the Organizing Entity">
             {getFieldDecorator("organizing_entity", {
+              initialValue: organizing_entity,
               rules: [{ required: true, message: "Please input!" }]
             })(<Input placeholder="Name of the Organizing Entity" />)}
           </Form.Item>
           <Form.Item label="City">
             {getFieldDecorator("city", {
-              rules: [
-                { required: true, message: "Please input your username!" }
-              ]
-            })(
-              <Select placeholder="City">
-                {renderSelect(selectCity)}
-              </Select>
-            )}
+              initialValue: city,
+              rules: [{ required: true, message: "Please input!" }]
+            })(<Select placeholder="City">{renderSelect(selectCity)}</Select>)}
           </Form.Item>
         </Col>
       </Row>
       <Title level={4}>Program Description</Title>
       <div>
         <Form.Item>
-          {getFieldDecorator("describe", {
+          {getFieldDecorator("program_describe", {
+            initialValue: program_describe,
             rules: [{ required: true, message: "Please input!" }]
           })(<TextArea rows={4} placeholder="Program Description" />)}
         </Form.Item>
@@ -187,7 +257,8 @@ const BaseInfo = props => {
       <Title level={4}>Relevant Fields of Interest</Title>
       <div>
         <Form.Item>
-          {getFieldDecorator("tags", {
+          {getFieldDecorator("fields_interest", {
+            initialValue: fields_interest,
             rules: [{ required: true, message: "Please select!" }]
           })(<Checkbox.Group>{renderCheck(options)}</Checkbox.Group>)}
         </Form.Item>
@@ -201,27 +272,62 @@ const BaseInfo = props => {
         <Col span={5} style={{ paddingRight: 40 }}>
           <Form.Item label="Program Start Day">
             {getFieldDecorator("program_start_day", {
+              initialValue: program_start_day ? moment(program_start_day) : "",
               rules: [{ required: true, message: "Please select!" }]
-            })(<DatePicker format={dateFormat} />)}
+            })(
+              <DatePicker
+                format={dateFormat}
+                disabledDate={startValue => {
+                  console.log(startValue);
+                  if (!startValue || !programEndDay) {
+                    return false;
+                  }
+                  return startValue.valueOf() > programEndDay.valueOf();
+                }}
+              />
+            )}
           </Form.Item>
           <Form.Item label="Registration Deadline">
             {getFieldDecorator("deadline", {
+              initialValue: deadline ? moment(deadline) : "",
               rules: [{ required: true, message: "Please select!" }]
-            })(<DatePicker format={dateFormat} />)}
+            })(
+              <DatePicker
+                format={dateFormat}
+                disabledDate={endValue => {
+                  if (!programStartDay) {
+                    return true;
+                  }
+                  return programStartDay.valueOf() <= endValue.valueOf();
+                }}
+              />
+            )}
           </Form.Item>
         </Col>
         <Col span={5}>
           <Form.Item label="Program End Day">
             {getFieldDecorator("program_end_day", {
+              initialValue: program_end_day ? moment(program_end_day) : "",
               rules: [{ required: true, message: "Please select!" }]
-            })(<DatePicker format={dateFormat} />)}
+            })(
+              <DatePicker
+                format={dateFormat}
+                disabledDate={endValue => {
+                  if (!endValue || !programStartDay) {
+                    return false;
+                  }
+                  return endValue.valueOf() <= programStartDay.valueOf();
+                }}
+              />
+            )}
           </Form.Item>
         </Col>
       </Row>
       <Title level={4}>Types of Participants</Title>
       <div>
         <Form.Item>
-          {getFieldDecorator("type", {
+          {getFieldDecorator("type_participants", {
+            initialValue: type_participants,
             rules: [{ required: true, message: "Please select!" }]
           })(<Checkbox.Group>{renderCheck(fieldOptions)}</Checkbox.Group>)}
         </Form.Item>
@@ -231,10 +337,12 @@ const BaseInfo = props => {
       </Title>
       <Row>{renderList(list)}</Row>
       <div style={{ paddingTop: 30 }}>
-        <Button type="primary">NEXT STEP</Button>
+        <Button type="primary" onClick={handleNext}>
+          NEXT STEP
+        </Button>
       </div>
     </Form>
   );
 };
 
-export default BaseInfo;
+export default Form.create()(BaseInfo);

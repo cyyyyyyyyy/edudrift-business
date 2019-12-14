@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import {
   DatePicker,
-  Checkbox,
-  Select,
   Typography,
   Form,
   Input,
@@ -10,54 +8,75 @@ import {
   Col,
   Button
 } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import moment from "moment";
+import { setProgram } from "../../../../store/program";
 
 const { Title, Text } = Typography;
-const { TextArea } = Input;
 const dateFormat = "YYYY/MM/DD";
 
-const data = [
-  { label: "Day01", value: "1", date: "2019-10-10" },
-  { label: "Day02", value: "2", date: "2019-10-11" },
-  { label: "Day03", value: "3", date: "2019-10-12" },
-  { label: "Day04", value: "4", date: "2019-10-13" },
-  { label: "Day05", value: "5", date: "2019-10-14" },
-  { label: "Day06", value: "6", date: "2019-10-15" },
-  { label: "Day07", value: "7", date: "2019-10-16" },
-  { label: "Day08", value: "8", date: "2019-10-17" }
-];
-
 const dayEvent = [
-  { value: "morning", label: " Morning(0900H-1200H)", type: "text" },
-  { value: "morning-1", label: "Airport Arrival" },
-  { value: "morning-2", label: "Registration and Hotel Check-In" },
-  { value: "morning-3", label: "Airport Arrival" },
-  { value: "afternoon", label: "Afternoon (1400H - 1700H)", type: "text" },
-  { value: "afternoon-1", label: "Airport Arrival" },
-  { value: "afternoon-2", label: "Registration and Hotel Check-In" },
-  { value: "afternoon-3", label: "Airport Arrival" },
-  { value: "evening", label: "Evening (1800H onwards)", type: "text" },
-  { value: "evening-1", label: "Airport Arrival" },
-  { value: "evening-2", label: "Registration and Hotel Check-In" },
-  { value: "evening-3", label: "Airport Arrival" }
+  { value: "morning_1", label: " Morning(0900H-1200H)", type: "text" },
+  { value: "morning_2", label: "Airport Arrival" },
+  { value: "morning_3", label: "Registration and Hotel Check-In" },
+  { value: "morning_4", label: "Airport Arrival" },
+  { value: "afternoon_1", label: "Afternoon (1400H - 1700H)", type: "text" },
+  { value: "afternoon-2", label: "Airport Arrival" },
+  { value: "afternoon-3", label: "Registration and Hotel Check-In" },
+  { value: "afternoon-4", label: "Airport Arrival" },
+  { value: "evening_1", label: "Evening (1800H onwards)", type: "text" },
+  { value: "evening-2", label: "Airport Arrival" },
+  { value: "evening-3", label: "Registration and Hotel Check-In" },
+  { value: "evening-4", label: "Airport Arrival" }
 ];
 
 const Plan = props => {
-  const { getFieldDecorator, getFieldsValue, setFieldsValue } = props.form;
+  const { setCurrent } = props;
+  const { getFieldDecorator, validateFields, getFieldsValue } = props.form;
   const [selectDay, setSelectDay] = useState("");
+  const stepData1 = useSelector(state => state.program.step1);
+  const { program_end_day, program_start_day } = stepData1;
+  const dispatch = useDispatch();
+  const duration = moment(program_end_day).diff(program_start_day, "d");
 
   const handleSelect = value => {
     setSelectDay(value);
   };
 
+  const handleNext = () => {
+    validateFields(error => {
+      if (!error) {
+        const formValue = getFieldsValue();
+        const schedule_list = [];
+        for (let i = 0; i < duration; i++) {
+          if (formValue[`day_${i}`]) {
+            schedule_list.push(formValue[`day_${i}`]);
+          }
+        }
+        dispatch(
+          setProgram({
+            type: "step2",
+            data: { schedule_list }
+          })
+        );
+        setCurrent(3);
+      }
+    });
+  };
+
   const renderPlanList = data => {
     const arr = [];
-    data.forEach(item => {
-      arr.push(
-        <Col span={2} key={item.value}>
-          <Button onClick={() => handleSelect(item.value)}>{item.label}</Button>
-        </Col>
-      );
-    });
+    if (program_start_day && program_end_day && data) {
+      for (let i = 0; i < data; i++) {
+        arr.push(
+          <Col span={2} key={i}>
+            <Button
+              onClick={() => handleSelect(`day_${i}`)}
+            >{`DAY${i}`}</Button>
+          </Col>
+        );
+      }
+    }
     return arr;
   };
 
@@ -84,7 +103,6 @@ const Plan = props => {
     return arr;
   };
 
-  const selectData = data.find(item => item.value === selectDay) || {};
   return (
     <Form>
       <Title level={3}>项目计划</Title>
@@ -95,44 +113,32 @@ const Plan = props => {
       </Text>
       <Row>
         <Col span={6} style={{ paddingRight: 40 }}>
-          <Form.Item label="项目开始时间">
-            {getFieldDecorator("project_name", {
-              rules: [
-                { required: true, message: "Please input your username!" }
-              ]
-            })(<DatePicker format={dateFormat} />)}
+          <Form.Item label="Program Start Day">
+            {getFieldDecorator("program_start_day", {
+              initialValue: program_start_day,
+              rules: []
+            })(<DatePicker format={dateFormat} disabled />)}
           </Form.Item>
         </Col>
         <Col span={6}>
           <Form.Item label="项目结束时间">
-            {getFieldDecorator("username", {
-              rules: [
-                { required: true, message: "Please input your username!" }
-              ]
-            })(<DatePicker format={dateFormat} />)}
+            {getFieldDecorator("program_end_day", {
+              initialValue: program_end_day,
+              rules: []
+            })(<DatePicker format={dateFormat} disabled />)}
           </Form.Item>
         </Col>
       </Row>
-      <Title level={4}>日常安排</Title>
-      <Row>{renderPlanList(data)}</Row>
-      {selectDay ? (
-        <div>
-          <Form.Item label={<spa>{selectData.label}</spa>}>
-            {getFieldDecorator(`${selectDay}[arrival]`, {
-              preserve: true,
-              rules: [
-                { required: true, message: "Please input your username!" }
-              ]
-            })(<DatePicker format={dateFormat} />)}
-          </Form.Item>
-          {dayEventList(dayEvent)}
-        </div>
-      ) : null}
+      <Title level={4}>Daily Schedule</Title>
+      <Row>{renderPlanList(duration)}</Row>
+      {selectDay ? <div>{dayEventList(dayEvent)}</div> : null}
       <div style={{ paddingTop: 30 }}>
-        <Button type="primary">NEXT STEP</Button>
+        <Button type="primary" onClick={handleNext}>
+          NEXT STEP
+        </Button>
       </div>
     </Form>
   );
 };
 
-export default Plan;
+export default Form.create()(Plan);
