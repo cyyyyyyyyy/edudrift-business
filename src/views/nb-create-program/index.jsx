@@ -10,6 +10,7 @@ import Requirement from "./component/requirement";
 import Stay from "./component/stay";
 import Cost from "./component/cost";
 import Submit from "./component/submit";
+import AliyunOSSUpload from "./component/base/oss-upload";
 
 import { setProgram } from "../../store/program";
 
@@ -54,7 +55,7 @@ const steps = [
 
 const NbCreateProgram = props => {
   const { form } = props;
-  const [current, setCurrent] = useState(5);
+  const [current, setCurrent] = useState(0);
   const programData = useSelector(state => state.program);
   const dispatch = useDispatch();
 
@@ -100,7 +101,11 @@ const NbCreateProgram = props => {
           current={current}
           style={{ width: 900, marginLeft: -22, padding: "15px 0 30px 0" }}
           labelPlacement="vertical"
-          onChange={data => setCurrent(data)}
+          onChange={data => {
+            if (data < current) {
+              setCurrent(data);
+            }
+          }}
         >
           {steps.map((item, index) => (
             <Step key={index} title={item.title} />

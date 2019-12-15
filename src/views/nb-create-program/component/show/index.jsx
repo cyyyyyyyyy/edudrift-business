@@ -12,6 +12,7 @@ import {
   Radio
 } from "antd";
 import { setProgram } from "../../../../store/program";
+import AliyunOSSUpload from "../base/oss-upload";
 
 const { Title, Text } = Typography;
 
@@ -37,7 +38,6 @@ const Show = props => {
   } = props.form;
   const stepData1 = useSelector(state => state.program.step3);
   const dispatch = useDispatch();
-
 
   const {
     program_highlight,
@@ -120,14 +120,7 @@ const Show = props => {
   };
 
   const renderProjectImage = () => {
-    return (
-      <Upload name="avatar" listType="picture-card">
-        <>
-          <Icon type="plus" />
-          <span className="ant-upload-text">Upload</span>
-        </>
-      </Upload>
-    );
+    return <AliyunOSSUpload />;
   };
 
   return (

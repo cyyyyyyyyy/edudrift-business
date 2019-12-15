@@ -55,5 +55,33 @@ const postData = {
     restrictions_max_age: "",
     need_other_registration: "",
     other_registration_info: []
+  },
+  accommodation: {
+    need_accommodation: "",
+    english_language_details: "",
+    local_language_details: "",
+    english_address: "",
+    local_address: "",
+    accommodation_type: "",
+    airport_transfer: [],
+    room_type: "",
+    photos: []
+  },
+  asd: {
+    cost_type: "",
+    need_additional_fee: "",
+    additional_fee: "",
+    early_bird_period: ["DD/MM/YYYY", "DD/MM/YY"],
+    amount_of_discount: "",
+    after_paying_deposit: "",
+    after_full_payment: "",
+    package_list: [
+      {
+        add_type: "",
+        add_room_type: "",
+        add_tuition_fee: "",
+        hotel_fee: ""
+      }
+    ]
   }
 };

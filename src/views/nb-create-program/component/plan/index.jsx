@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  DatePicker,
-  Typography,
-  Form,
-  Input,
-  Row,
-  Col,
-  Button
-} from "antd";
+import { DatePicker, Typography, Form, Input, Row, Col, Button } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { setProgram } from "../../../../store/program";
@@ -32,12 +24,31 @@ const dayEvent = [
 
 const Plan = props => {
   const { setCurrent } = props;
-  const { getFieldDecorator, validateFields, getFieldsValue } = props.form;
+  const {
+    getFieldDecorator,
+    validateFields,
+    getFieldsValue,
+    getFieldValue
+  } = props.form;
   const [selectDay, setSelectDay] = useState("");
   const stepData1 = useSelector(state => state.program.step1);
   const { program_end_day, program_start_day } = stepData1;
   const dispatch = useDispatch();
   const duration = moment(program_end_day).diff(program_start_day, "d");
+
+  const renderArr = duration => {
+    const arr = [];
+    let i = 0;
+    while (i < duration) {
+      arr.push(i);
+      i++;
+    }
+    return arr;
+  };
+
+  getFieldDecorator("keys", {
+    initialValue: duration ? renderArr(duration) : []
+  });
 
   const handleSelect = value => {
     setSelectDay(value);
@@ -47,12 +58,8 @@ const Plan = props => {
     validateFields(error => {
       if (!error) {
         const formValue = getFieldsValue();
-        const schedule_list = [];
-        for (let i = 0; i < duration; i++) {
-          if (formValue[`day_${i}`]) {
-            schedule_list.push(formValue[`day_${i}`]);
-          }
-        }
+        const keys = getFieldValue("keys");
+        const schedule_list = keys.map(val => formValue[`day_${val}`]);
         dispatch(
           setProgram({
             type: "step2",
@@ -64,18 +71,33 @@ const Plan = props => {
     });
   };
 
-  const renderPlanList = data => {
+  const renderPlanList = () => {
     const arr = [];
-    if (program_start_day && program_end_day && data) {
-      for (let i = 0; i < data; i++) {
+    const keys = getFieldValue("keys");
+    if (keys) {
+      keys.forEach(i => {
+        const formValue = getFieldsValue();
+        let flag = true;
+        dayEvent.forEach(({ value, type }) => {
+          if (!formValue[`day_${i}`]) {
+            flag = false;
+          }
+          if (formValue[`day_${i}`] && type !== "text") {
+            if (!formValue[`day_${i}`][value]) {
+              flag = false;
+            }
+          }
+        });
         arr.push(
           <Col span={2} key={i}>
             <Button
+              type={flag ? "primary" : "default"}
+              style={{ width: "80%", marginTop: 16 }}
               onClick={() => handleSelect(`day_${i}`)}
             >{`DAY${i}`}</Button>
           </Col>
         );
-      }
+      });
     }
     return arr;
   };
@@ -115,7 +137,7 @@ const Plan = props => {
         <Col span={6} style={{ paddingRight: 40 }}>
           <Form.Item label="Program Start Day">
             {getFieldDecorator("program_start_day", {
-              initialValue: program_start_day,
+              initialValue: moment(program_start_day),
               rules: []
             })(<DatePicker format={dateFormat} disabled />)}
           </Form.Item>
@@ -123,15 +145,20 @@ const Plan = props => {
         <Col span={6}>
           <Form.Item label="项目结束时间">
             {getFieldDecorator("program_end_day", {
-              initialValue: program_end_day,
+              initialValue: moment(program_end_day),
               rules: []
             })(<DatePicker format={dateFormat} disabled />)}
           </Form.Item>
         </Col>
       </Row>
       <Title level={4}>Daily Schedule</Title>
-      <Row>{renderPlanList(duration)}</Row>
-      {selectDay ? <div>{dayEventList(dayEvent)}</div> : null}
+      <Row>{renderPlanList()}</Row>
+      {selectDay ? (
+        <div>
+          <div style={{ padding: "16px 0" }}>DAY {selectDay}</div>
+          {dayEventList(dayEvent)}
+        </div>
+      ) : null}
       <div style={{ paddingTop: 30 }}>
         <Button type="primary" onClick={handleNext}>
           NEXT STEP

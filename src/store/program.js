@@ -1,8 +1,11 @@
 import { createActions, handleActions } from "redux-actions";
 
-export const { setProgram } = createActions({
+export const { setProgram ,resetProgram} = createActions({
   setProgram: params => {
-    return params
+    return params;
+  },
+  resetProgram: params => {
+    return params;
   }
 });
 
@@ -13,6 +16,17 @@ const program = handleActions(
       const newState = { ...state };
       newState[type] = data;
       return newState;
+    },
+    resetProgram: (state, action) => {
+      return {
+        step0: {},
+        step1: {},
+        step2: {},
+        step3: {},
+        step4: {},
+        step5: {},
+        step6: {}
+      };
     }
   },
   {

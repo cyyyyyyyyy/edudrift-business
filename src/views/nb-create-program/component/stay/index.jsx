@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Checkbox, Typography, Form, Input, Button, Radio } from "antd";
+import { useDispatch, useSelector } from "react-redux";
 import style from "../program-type/index.module.scss";
+import { setProgram } from "../../../../store/program";
 
 const { Title, Text } = Typography;
 
@@ -35,7 +37,7 @@ const arriveList = [
   }
 ];
 
-const roomTypeList = [
+export const roomTypeList = [
   { label: "Single Room (Not shared)", value: "1" },
   { label: "Double/Twin Rooms", value: "2" },
   { label: "Triple Rooms", value: "3" },
@@ -44,8 +46,45 @@ const roomTypeList = [
 ];
 
 const Stay = props => {
-  const { getFieldDecorator, getFieldsValue, setFieldsValue } = props.form;
-  const [selectDay, setSelectDay] = useState("");
+  const {
+    getFieldDecorator,
+    getFieldsValue,
+    setFieldsValue,
+    getFieldValue,
+    validateFields
+  } = props.form;
+  const { setCurrent } = props;
+
+  const stepData = useSelector(state => state.program.step5);
+  const dispatch = useDispatch();
+
+  const handleNext = () => {
+    validateFields(error => {
+      if (!error) {
+        const formValue = getFieldsValue();
+        dispatch(
+          setProgram({
+            type: "step5",
+            data: {
+              ...formValue
+            }
+          })
+        );
+        setCurrent(6);
+      }
+    });
+  };
+
+  const {
+    need_accommodation,
+    english_language_details,
+    local_language_details,
+    english_address,
+    local_address,
+    accommodation_type,
+    airport_transfer,
+    room_type
+  } = stepData;
 
   const renderOutlineRadio = data => {
     const arr = [];
@@ -96,13 +135,14 @@ const Stay = props => {
       </Title>
       <Text type="secondary">
         Select up to 3 most relevant profile that best fits the program. Note
-        that if you select multiple groups, there is a very high likelyhood that
-        these participant from different academic profiles will register and be
-        in the same program.
+        that if you select multiple groups, there is a very high likelyhood
+        that these participant from different academic profiles will register
+        and be in the same program.
       </Text>
       <div>
         <Form.Item>
           {getFieldDecorator("need_accommodation", {
+            initialValue: need_accommodation,
             rules: [{ required: true, message: "Please select!" }]
           })(
             <Radio.Group style={{ width: "100% " }}>
@@ -112,50 +152,41 @@ const Stay = props => {
         </Form.Item>
       </div>
       <Title level={4}>Details of Accommodation</Title>
-      <Text type="secondary">In English language</Text>
-      <Form.Item>
-        {getFieldDecorator("english_language", {
-          rules: [{ required: true, message: "Please input your username!" }]
-        })(<Input style={{ marginTop: 10 }} />)}
+      <Form.Item label="In English language">
+        {getFieldDecorator("english_language_details", {
+          initialValue: english_language_details,
+          rules: [{ required: true, message: "Please input!" }]
+        })(<Input />)}
       </Form.Item>
-      <Text type="secondary" style={{ marginTop: 10 }}>
-        In Local language
-      </Text>
-      <Form.Item>
-        {getFieldDecorator("local_language", {
-          rules: [{ required: true, message: "Please input your username!" }]
-        })(<Input style={{ marginTop: 10 }} />)}
+      <Form.Item label="In Local language">
+        {getFieldDecorator("local_language_details", {
+          initialValue: local_language_details,
+          rules: [{ required: true, message: "Please input!" }]
+        })(<Input />)}
       </Form.Item>
       <Title level={4}>Address of Accommodation</Title>
-      <Text type="secondary">In English language</Text>
       <div style={{ width: 300 }}>
-        {getFieldDecorator("eg_line1", {
-          rules: [{ required: true, message: "Please input your username!" }]
-        })(<Input style={{ marginTop: 10 }} />)}
-        {getFieldDecorator("eg_line2", {
-          rules: [{ required: true, message: "Please input your username!" }]
-        })(<Input style={{ marginTop: 10 }} />)}
-        {getFieldDecorator("eg_place_code", {
-          rules: [{ required: true, message: "Please input your username!" }]
-        })(<Input style={{ marginTop: 10 }} />)}
+        <Form.Item label="In English language">
+          {getFieldDecorator("english_address", {
+            initialValue: english_address,
+            rules: [{ required: true, message: "Please input!" }]
+          })(<Input />)}
+        </Form.Item>
       </div>
-      <Text type="secondary">In Local language</Text>
       <div style={{ width: 300 }}>
-        {getFieldDecorator("local_line1", {
-          rules: [{ required: true, message: "Please input your username!" }]
-        })(<Input style={{ marginTop: 10 }} />)}
-        {getFieldDecorator("local_line2", {
-          rules: [{ required: true, message: "Please input your username!" }]
-        })(<Input style={{ marginTop: 10 }} />)}
-        {getFieldDecorator("local_place_code", {
-          rules: [{ required: true, message: "Please input your username!" }]
-        })(<Input style={{ marginTop: 10 }} />)}
+        <Form.Item label="In Local language">
+          {getFieldDecorator("local_address", {
+            initialValue: local_address,
+            rules: [{ required: true, message: "Please input!" }]
+          })(<Input style={{ marginTop: 10 }} />)}
+        </Form.Item>
       </div>
       <Title level={4}>Accommodation Type</Title>
       <div>
         <Form.Item>
-          {getFieldDecorator("star", {
-            rules: [{ required: true, message: "Please input your username!" }]
+          {getFieldDecorator("accommodation_type", {
+            initialValue: accommodation_type,
+            rules: [{ required: true, message: "Please select!" }]
           })(<Radio.Group>{renderRadio(starList)}</Radio.Group>)}
         </Form.Item>
       </div>
@@ -164,27 +195,31 @@ const Stay = props => {
       </Title>
       <div>
         <Form.Item>
-          {getFieldDecorator("arrive", {
-            rules: [{ required: true, message: "Please input your username!" }]
+          {getFieldDecorator("airport_transfer", {
+            initialValue: airport_transfer,
+            rules: [{ required: true, message: "Please select!" }]
           })(<Checkbox.Group>{renderCheck(arriveList)}</Checkbox.Group>)}
         </Form.Item>
       </div>
       <Title level={4}>Room Types Available</Title>
       <div>
         <Form.Item>
-          {getFieldDecorator("roomType", {
-            rules: [{ required: true, message: "Please input your username!" }]
-          })(<Radio.Group>{renderRadio(roomTypeList)}</Radio.Group>)}
+          {getFieldDecorator("room_type", {
+            initialValue: room_type,
+            rules: [{ required: true, message: "Please select!" }]
+          })(<Checkbox.Group>{renderCheck(roomTypeList)}</Checkbox.Group>)}
         </Form.Item>
       </div>
       <Title level={4}>Upload Photos</Title>
       <Text type="secondary">
-        Upload photos of the designated accommodation so as to give participants
-        a better idea of where they will be staying at and what to expect in the
-        accommodation!
+        Upload photos of the designated accommodation so as to give
+        participants a better idea of where they will be staying at and what
+        to expect in the accommodation!
       </Text>
       <div style={{ paddingTop: 30 }}>
-        <Button type="primary">NEXT STEP</Button>
+        <Button type="primary" onClick={handleNext}>
+          NEXT STEP
+        </Button>
       </div>
     </Form>
   );
